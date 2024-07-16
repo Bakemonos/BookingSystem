@@ -1,23 +1,20 @@
-import 'package:app/pages/mpinconfirm.dart';
-import 'package:app/pages/register.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
-class Mpin extends StatefulWidget {
-  const Mpin({super.key});
+class Mpinconfirm extends StatefulWidget {
+  const Mpinconfirm({super.key});
 
   @override
-  State<Mpin> createState() => _MyWidgetState();
+  State<Mpinconfirm> createState() => _MpinconfirmState();
 }
 
-class _MyWidgetState extends State<Mpin> {
+class _MpinconfirmState extends State<Mpinconfirm> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: const Color(0xFFDAEBFE),
       body: Padding(
@@ -43,7 +40,7 @@ class _MyWidgetState extends State<Mpin> {
                 Container(
                   alignment: Alignment.center,
                   child: const Text(
-                    'Create your 4-digit MPIN',
+                    'Confirm your 4 digit MPIN',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.w400,
@@ -73,7 +70,7 @@ class _MyWidgetState extends State<Mpin> {
                   height: 20.0,
                 ),
                 Text(
-                  'Please create a secure and memorable 4-digit MPIN for yourself.',
+                  'Type the 4-digits MPIN that you created for confirmation',
                   style: TextStyle(
                       fontSize: screenWidth * 0.04,
                       color: const Color(textSubtitle)),
@@ -88,12 +85,12 @@ class _MyWidgetState extends State<Mpin> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Mpinconfirm(),
-                        ),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => Register(),
+                      //   ),
+                      // );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF44D1FD).withOpacity(0.7),

@@ -102,7 +102,7 @@ class _OtpState extends State<Otp> {
                 Text(
                   'Didn’t receive code?',
                   style: TextStyle(
-                      fontSize: screenWidth * 0.06, color: Color(0xFF7F7F7F)),
+                      fontSize: screenWidth * 0.05, color: Color(0xFF7F7F7F)),
                 ),
                 const SizedBox(
                   height: 10.0,

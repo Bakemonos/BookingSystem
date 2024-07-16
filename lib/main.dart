@@ -1,3 +1,4 @@
+import 'package:app/pages/screen.dart';
 import 'package:app/pages/signup.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Signup(),
+      home: Screen(),
       debugShowCheckedModeBanner: false,
     );
   }
