@@ -1,5 +1,4 @@
 import 'package:app/pages/mpinconfirm.dart';
-import 'package:app/pages/register.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,7 +15,7 @@ class _MyWidgetState extends State<Mpin> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+   // double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: const Color(0xFFDAEBFE),
@@ -69,7 +68,7 @@ class _MyWidgetState extends State<Mpin> {
                   onCompleted: (value) {},
                   onEditing: (value) {},
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 Text(
@@ -91,7 +90,7 @@ class _MyWidgetState extends State<Mpin> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Mpinconfirm(),
+                          builder: (context) => const Mpinconfirm(),
                         ),
                       );
                     },

@@ -14,7 +14,7 @@ class _MpinconfirmState extends State<Mpinconfirm> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color(0xFFDAEBFE),
       body: Padding(
@@ -66,7 +66,7 @@ class _MpinconfirmState extends State<Mpinconfirm> {
                   onCompleted: (value) {},
                   onEditing: (value) {},
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 Text(

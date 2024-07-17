@@ -84,7 +84,8 @@ class _OtpState extends State<Otp> {
                 Text(
                   'We sent a 6-digit authentication code to your registered Email',
                   style: TextStyle(
-                      fontSize: screenWidth * 0.04, color: Color(0xFF7F7F7F)),
+                      fontSize: screenWidth * 0.04,
+                      color: const Color(0xFF7F7F7F)),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
@@ -102,7 +103,8 @@ class _OtpState extends State<Otp> {
                 Text(
                   'Didn’t receive code?',
                   style: TextStyle(
-                      fontSize: screenWidth * 0.05, color: Color(0xFF7F7F7F)),
+                      fontSize: screenWidth * 0.05,
+                      color: const Color(0xFF7F7F7F)),
                 ),
                 const SizedBox(
                   height: 10.0,
@@ -140,7 +142,7 @@ class _OtpState extends State<Otp> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Mpin(),
+                          builder: (context) => const Mpin(),
                         ),
                       );
                     },
