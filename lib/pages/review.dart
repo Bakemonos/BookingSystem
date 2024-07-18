@@ -1,6 +1,6 @@
+import 'package:app/pages/register.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Review extends StatefulWidget {
   const Review({super.key});
@@ -13,7 +13,7 @@ class _ReviewState extends State<Review> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color(backgroundColor),
       body: Padding(
@@ -23,22 +23,8 @@ class _ReviewState extends State<Review> {
           children: [
             Column(
               children: [
-                Row(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.fromLTRB(0, 40.0, 0, 0),
-                      child: SvgPicture.asset(
-                        'assets/arrow.svg',
-                        width: 30.0,
-                        height: 30.0,
-                        alignment: Alignment.topCenter,
-                      ),
-                    ),
-                  ],
-                ),
                 const SizedBox(
-                  height: 30.0,
+                  height: 50.0,
                 ),
                 Container(
                     alignment: Alignment.centerLeft,
@@ -195,7 +181,7 @@ class _ReviewState extends State<Review> {
                       // );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF44D1FD).withOpacity(0.7),
+                      backgroundColor: const Color(primaryColor),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
@@ -205,7 +191,8 @@ class _ReviewState extends State<Review> {
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
                         fontWeight: FontWeight.normal,
-                        color: const Color(0xFFF5F5F5),
+                        color: const Color(textLight),
+                        fontFamily: "Poppins",
                       ),
                     ),
                   ),
@@ -215,12 +202,22 @@ class _ReviewState extends State<Review> {
                   width: double.infinity,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      'Go back and edit',
-                      style: TextStyle(
-                          fontSize: screenWidth * 0.04,
-                          fontFamily: "Poppins",
-                          color: const Color(primaryColor)),
+                    child: GestureDetector(
+                      child: Text(
+                        'Go back and edit',
+                        style: TextStyle(
+                            fontSize: screenWidth * 0.04,
+                            fontFamily: "Poppins",
+                            color: const Color(primaryColor)),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Register(),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),

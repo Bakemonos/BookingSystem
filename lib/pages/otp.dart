@@ -1,4 +1,5 @@
 import 'package:app/pages/mpin.dart';
+import 'package:app/pages/signup.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,7 +19,33 @@ class _OtpState extends State<Otp> {
     //double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFDAEBFE),
+      backgroundColor: const Color(backgroundColor),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Sign Up',
+          style: TextStyle(
+            fontSize: screenWidth * 0.05,
+            fontFamily: "Poppins",
+            color: const Color(textColor),
+          ),
+        ),
+        backgroundColor: const Color(backgroundColor),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const Signup(),
+              ),
+            );
+          },
+          icon: SvgPicture.asset(
+            'assets/arrow.svg',
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
@@ -26,44 +53,11 @@ class _OtpState extends State<Otp> {
           children: [
             Column(
               children: [
-                Row(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.fromLTRB(0, 40.0, 0, 0),
-                      child: SvgPicture.asset(
-                        'assets/arrow.svg',
-                        width: 30.0,
-                        height: 30.0,
-                        alignment: Alignment.topCenter,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 35.0),
-                      child: SizedBox(
-                        height: 30.0,
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                              fontSize: screenWidth * 0.05,
-                              color: const Color(textColor)),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 50.0,
-                ),
                 Text(
                   'Enter the 6-digit One-Time PIN (OTP)',
                   style: TextStyle(
                     fontSize: screenWidth * 0.06,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xFF454545),
+                    color: const Color(textColor),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -85,7 +79,7 @@ class _OtpState extends State<Otp> {
                   'We sent a 6-digit authentication code to your registered Email',
                   style: TextStyle(
                       fontSize: screenWidth * 0.04,
-                      color: const Color(0xFF7F7F7F)),
+                      color: const Color(textSubtitle)),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
@@ -95,7 +89,7 @@ class _OtpState extends State<Otp> {
                   'ric**********es@gmail.com',
                   style: TextStyle(
                       fontSize: screenWidth * 0.04,
-                      color: const Color(0xFF44D1FD).withOpacity(0.7)),
+                      color: const Color(primaryColor).withOpacity(0.7)),
                 ),
                 const SizedBox(
                   height: 10.0,
@@ -104,7 +98,7 @@ class _OtpState extends State<Otp> {
                   'Didn’t receive code?',
                   style: TextStyle(
                       fontSize: screenWidth * 0.05,
-                      color: const Color(0xFF7F7F7F)),
+                      color: const Color(textSubtitle)),
                 ),
                 const SizedBox(
                   height: 10.0,
@@ -116,7 +110,7 @@ class _OtpState extends State<Otp> {
                       'Resend New Code',
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
-                        color: const Color(0xFF609EF4).withOpacity(0.8),
+                        color: const Color(secondaryColor).withOpacity(0.8),
                       ),
                     ),
                     Container(
@@ -125,7 +119,8 @@ class _OtpState extends State<Otp> {
                         '2:00',
                         style: TextStyle(
                             fontSize: 16.0,
-                            color: const Color(0xFF609EF4).withOpacity(0.8)),
+                            color:
+                                const Color(secondaryColor).withOpacity(0.8)),
                       ),
                     ),
                   ],
@@ -147,17 +142,18 @@ class _OtpState extends State<Otp> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF44D1FD).withOpacity(0.7),
+                      backgroundColor: const Color(primaryColor),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Next',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: screenWidth * 0.04,
                         fontWeight: FontWeight.normal,
-                        color: Color(0xFFF5F5F5),
+                        color: const Color(textLight),
+                        fontFamily: "Poppins",
                       ),
                     ),
                   ),

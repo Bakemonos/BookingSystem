@@ -1,6 +1,8 @@
+import 'package:app/pages/mpin.dart';
 import 'package:app/pages/register.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Mpinconfirm extends StatefulWidget {
@@ -16,7 +18,33 @@ class _MpinconfirmState extends State<Mpinconfirm> {
     double screenWidth = MediaQuery.of(context).size.width;
     // double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color(0xFFDAEBFE),
+      backgroundColor: const Color(backgroundColor),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Sign Up',
+          style: TextStyle(
+            fontSize: screenWidth * 0.05,
+            fontFamily: "Poppins",
+            color: const Color(textColor),
+          ),
+        ),
+        backgroundColor: const Color(backgroundColor),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const Mpin(),
+              ),
+            );
+          },
+          icon: SvgPicture.asset(
+            'assets/arrow.svg',
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
@@ -24,34 +52,32 @@ class _MpinconfirmState extends State<Mpinconfirm> {
           children: [
             Column(
               children: [
-                const SizedBox(
-                  height: 114.0,
-                ),
                 Container(
                   alignment: Alignment.center,
-                  child: const Text(
+                  child: Text(
                     'Confirm your 4 digit MPIN',
                     style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF454545),
+                      fontSize: screenWidth * 0.06,
+                      color: const Color(textColor),
                     ),
                   ),
                 ),
                 const SizedBox(
                   height: 10.0,
                 ),
-                const Text(
+                Text(
                   'Remember your 4-digit MPIN, this will serve as your login  code to enter the app',
-                  style: TextStyle(fontSize: 16.0, color: Color(0xFF7F7F7F)),
+                  style: TextStyle(
+                      fontSize: screenWidth * 0.04,
+                      color: const Color(textSubtitle)),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 30.0,
                 ),
                 VerificationCode(
-                  textStyle: const TextStyle(fontSize: 24.0),
-                  underlineColor: const Color(0xFFA8A8A8),
+                  textStyle: TextStyle(fontSize: screenWidth * 0.06),
+                  underlineColor: const Color(textSubtitle),
                   keyboardType: TextInputType.number,
                   onCompleted: (value) {},
                   onEditing: (value) {},
@@ -83,17 +109,18 @@ class _MpinconfirmState extends State<Mpinconfirm> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF44D1FD).withOpacity(0.7),
+                      backgroundColor: const Color(primaryColor),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Next',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: screenWidth * 0.04,
                         fontWeight: FontWeight.normal,
-                        color: Color(0xFFF5F5F5),
+                        color: const Color(textLight),
+                        fontFamily: "Poppins",
                       ),
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:app/pages/otp.dart';
+import 'package:app/pages/screen.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,12 +18,38 @@ class _SignupState extends State<Signup> {
     //double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-        backgroundColor: const Color(0xFFDAEBFE),
+        backgroundColor: const Color(backgroundColor),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            'Sign Up',
+            style: TextStyle(
+              fontSize: screenWidth * 0.05,
+              fontFamily: "Poppins",
+              color: const Color(textColor),
+            ),
+          ),
+          backgroundColor: const Color(foregroundColor),
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Screen(),
+                ),
+              );
+            },
+            icon: SvgPicture.asset(
+              'assets/arrow.svg',
+            ),
+          ),
+        ),
         body: Stack(
           children: [
             SvgPicture.asset(
               alignment: Alignment.center,
-              'assets/backgroundShape.svg',
+              'assets/emailShape.svg',
               width: screenWidth,
             ),
             Padding(
@@ -32,38 +59,6 @@ class _SignupState extends State<Signup> {
                 children: [
                   Column(
                     children: [
-                      Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.fromLTRB(0, 40.0, 0, 0),
-                            child: SvgPicture.asset(
-                              'assets/arrow.svg',
-                              width: 30.0,
-                              height: 30.0,
-                              alignment: Alignment.topCenter,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20.0,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 35.0),
-                            child: SizedBox(
-                              height: 30.0,
-                              child: Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                    fontSize: screenWidth * 0.05,
-                                    color: const Color(textColor)),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 130.0,
-                      ),
                       SvgPicture.asset(
                         'assets/signupImage.svg',
                         alignment: Alignment.topCenter,
@@ -71,22 +66,25 @@ class _SignupState extends State<Signup> {
                       const SizedBox(
                         height: 30.0,
                       ),
-                      const Text(
+                      Text(
                         'Verification code on your email',
-                        style:
-                            TextStyle(color: Color(textColor), fontSize: 26.0),
+                        style: TextStyle(
+                            color: const Color(textColor),
+                            fontSize: screenWidth * 0.05,
+                            fontFamily: "Poppins"),
                       ),
                       const SizedBox(
                         height: 5.0,
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 0),
+                        padding: const EdgeInsets.fromLTRB(50.0, 0, 50.0, 0),
                         child: Text(
                           'We will send verification code on your email',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: screenWidth * 0.05,
-                              color: const Color(textSubtitle)),
+                              fontSize: screenWidth * 0.04,
+                              color: const Color(textSubtitle),
+                              fontFamily: "Poppins"),
                         ),
                       ),
                     ],
@@ -98,10 +96,10 @@ class _SignupState extends State<Signup> {
                         child: const Text(
                           'Enter your email',
                           style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF454545),
-                          ),
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w400,
+                              color: Color(textColor),
+                              fontFamily: "Poppins"),
                         ),
                       ),
                       const SizedBox(
@@ -109,20 +107,29 @@ class _SignupState extends State<Signup> {
                       ),
                       TextField(
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                                borderSide:
-                                    const BorderSide(color: Color(0xFFBEBEBE))),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 1, color: Color(textStroke)),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                width: 2,
+                                color: Color(primaryColor),
+                              ),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
                             prefixIcon: const Icon(
                               Icons.email_outlined,
-                              color: Color(0xFFBEBEBE),
+                              color: Color(textStroke),
                             ),
                             hintText: 'Email',
-                            hintStyle:
-                                const TextStyle(color: Color(0xFFBEBEBE))),
+                            hintStyle: const TextStyle(
+                                color: Color(textStroke),
+                                fontFamily: "Poppins")),
                       ),
                       const SizedBox(
-                        height: 40.0,
+                        height: 30.0,
                       ),
                       SizedBox(
                         height: 60.0,
@@ -137,18 +144,18 @@ class _SignupState extends State<Signup> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color(0xFF44D1FD).withOpacity(0.7),
+                            backgroundColor: const Color(primaryColor),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
-                          child: const Text(
+                          child: Text(
                             'Next',
                             style: TextStyle(
-                              fontSize: 16.0,
+                              fontSize: screenWidth * 0.04,
                               fontWeight: FontWeight.normal,
-                              color: Color(0xFFF5F5F5),
+                              color: const Color(textLight),
+                              fontFamily: "Poppins",
                             ),
                           ),
                         ),

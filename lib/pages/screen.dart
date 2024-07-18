@@ -1,3 +1,4 @@
+import 'package:app/pages/signin.dart';
 import 'package:app/pages/signup.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class _ScreenState extends State<Screen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Signup(),
+                                  builder: (context) => const Signin(),
                                 ),
                               );
                             },
@@ -95,12 +96,22 @@ class _ScreenState extends State<Screen> {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    Text(
-                      'Sign up',
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontSize: screenWidth * 0.04,
-                          color: const Color(primaryColor)),
+                    GestureDetector(
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: screenWidth * 0.04,
+                            color: const Color(primaryColor)),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Signup(),
+                          ),
+                        );
+                      },
                     ),
                     const SizedBox(
                       height: 30.0,
