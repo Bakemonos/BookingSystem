@@ -1,7 +1,6 @@
 import 'package:app/pages/mpinconfirm.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Mpin extends StatefulWidget {
@@ -15,7 +14,7 @@ class _MyWidgetState extends State<Mpin> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-   // double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: const Color(0xFFDAEBFE),
@@ -26,18 +25,8 @@ class _MyWidgetState extends State<Mpin> {
           children: [
             Column(
               children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.fromLTRB(0, 40.0, 0, 0),
-                  child: SvgPicture.asset(
-                    'assets/x.svg',
-                    width: 24.0,
-                    height: 24.0,
-                    alignment: Alignment.topCenter,
-                  ),
-                ),
                 const SizedBox(
-                  height: 50.0,
+                  height: 114.0,
                 ),
                 Container(
                   alignment: Alignment.center,

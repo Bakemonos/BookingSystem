@@ -1,6 +1,6 @@
+import 'package:app/pages/register.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Mpinconfirm extends StatefulWidget {
@@ -24,18 +24,8 @@ class _MpinconfirmState extends State<Mpinconfirm> {
           children: [
             Column(
               children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.fromLTRB(0, 40.0, 0, 0),
-                  child: SvgPicture.asset(
-                    'assets/x.svg',
-                    width: 24.0,
-                    height: 24.0,
-                    alignment: Alignment.topCenter,
-                  ),
-                ),
                 const SizedBox(
-                  height: 50.0,
+                  height: 114.0,
                 ),
                 Container(
                   alignment: Alignment.center,
@@ -85,12 +75,12 @@ class _MpinconfirmState extends State<Mpinconfirm> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => Register(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Register(),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF44D1FD).withOpacity(0.7),

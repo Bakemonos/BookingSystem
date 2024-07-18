@@ -32,77 +32,42 @@ class _ScreenState extends State<Screen> {
                     width: screenWidth,
                     'assets/backgroundModel.png',
                     fit: BoxFit.contain,
-                  )
+                  ),
                 ],
               ),
               const SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                width: 225.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  color: const Color(foregroundColor),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      'assets/sampleLogo.svg',
-                    ),
-                    const SizedBox(
-                      width: 10.0,
-                    ),
-                    Text(
-                      'Sample Title',
-
-                      style: TextStyle(
-                        color: const Color(textSubtitle),
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenWidth * 0.05,
-                        fontFamily: 'Poppins',
-                      ), // Adjust to your text style
-                    ),
-                  ],
-                ),
+                height: 20.0,
               ),
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 50,
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Signup(),
+                    Stack(
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Signup(),
+                                ),
+                              );
+                            },
+                            style: OutlinedButton.styleFrom(
+                              side: const BorderSide(
+                                color: Color(
+                                    primaryColor), // Set your desired stroke color
+                                width: 0.8, // Adjust the stroke width as needed
+                              ),
+                              backgroundColor: const Color(foregroundColor),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
                             ),
-                          );
-                        },
-                        style: OutlinedButton.styleFrom(
-                          side: const BorderSide(
-                            color: Color(
-                                primaryColor), // Set your desired stroke color
-                            width: 0.8, // Adjust the stroke width as needed
-                          ),
-                          backgroundColor: const Color(foregroundColor),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                        ),
-
-
-
-
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-
-                            Text(
+                            child: Text(
                               'SIGN IN',
                               style: TextStyle(
                                 fontSize: screenWidth * 0.05,
@@ -110,25 +75,43 @@ class _ScreenState extends State<Screen> {
                                 fontFamily: "Poppins",
                                 color: const Color(textSubtitle),
                               ),
-
-
-                              
                             ),
-                            SvgPicture.asset(
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(right: 20.0, top: 12.0),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: SvgPicture.asset(
+                              width: 24.0,
+                              height: 24.0,
                               'assets/arrowRight.svg',
                             ),
-
-
-
-                          ],
+                          ),
                         ),
-
-
-
-
-
-                      ),
+                      ],
                     ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      'Sign up',
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: screenWidth * 0.04,
+                          color: const Color(primaryColor)),
+                    ),
+                    const SizedBox(
+                      height: 30.0,
+                    ),
+                    Text(
+                      'Version 1991',
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: screenWidth * 0.03,
+                          color: const Color(textSubtitle)),
+                    )
                   ],
                 ),
               )
