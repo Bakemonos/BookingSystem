@@ -189,8 +189,9 @@ class _RegisterState extends State<Register> {
                         height: 5.0,
                       ),
                       Container(
+                        alignment: Alignment.center,
                         padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                        height: 50.0,
+                        height: 55.0,
                         width: double.infinity,
                         decoration: BoxDecoration(
                             border: Border.all(

@@ -125,14 +125,24 @@ class _SigninState extends State<Signinmpinscreen> {
                       height: 10.0,
                     ),
                     // Radio MPIN
-                    Container(
-                      width: double.infinity,
+                    SizedBox(
+                      width: 100,
                       height: 20,
-                      color: Colors.amber,
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [Text('FOR RADIO DESIGN LAYOUT')],
+                        children: [
+                          for (int i = 0; i < 4; i++)
+                            Container(
+                              width: 18.0,
+                              height: 18.0,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1, color: const Color(textSubtitle)),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                        ],
                       ),
                     ),
                   ],
@@ -142,30 +152,27 @@ class _SigninState extends State<Signinmpinscreen> {
             ),
             Column(
               children: [
-                GestureDetector(
-                  child: Container(
-                    padding: const EdgeInsets.fromLTRB(15.0, 16.0, 15.0, 16.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: const Color(foregroundColor),
-                    ),
-                    child: Column(
-                      children: [
-                        SvgPicture.asset("assets/mpinDesgin.svg"),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Text(
-                          'MPIN Login',
-                          style: TextStyle(
-                              fontSize: screenWidth * 0.03,
-                              fontFamily: "Poppins",
-                              color: const Color(textSubtitle)),
-                        ),
-                      ],
-                    ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 20.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: const Color(foregroundColor),
                   ),
-                  onTap: () {},
+                  child: Column(
+                    children: [
+                      SvgPicture.asset("assets/mpinDesgin.svg"),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'MPIN Login',
+                        style: TextStyle(
+                            fontSize: screenWidth * 0.03,
+                            fontFamily: "Poppins",
+                            color: const Color(textSubtitle)),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 50.0,
