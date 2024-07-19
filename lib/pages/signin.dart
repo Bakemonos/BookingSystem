@@ -1,3 +1,5 @@
+import 'package:app/pages/screen.dart';
+import 'package:app/pages/signinmpinscreen.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -35,7 +37,12 @@ class _SigninState extends State<Signin> {
                       children: [
                         IconButton(
                           icon: SvgPicture.asset("assets/arrow.svg"),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Screen()));
+                          },
                         ),
                         const Spacer(),
                         Flexible(
@@ -82,28 +89,26 @@ class _SigninState extends State<Signin> {
                     ),
                     TextField(
                       decoration: InputDecoration(
-                        fillColor: const Color(primaryColor).withOpacity(0.8),
-                        filled: true,
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                              width: 2, color: Color(textLight)),
+                              width: 1, color: Color(textStroke)),
                           borderRadius: BorderRadius.circular(5),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                             width: 2,
-                            color: Color(secondaryColor),
+                            color: Color(primaryColor),
                           ),
                           borderRadius: BorderRadius.circular(5),
                         ),
                         prefixIcon: const Icon(
                           Icons.email_outlined,
-                          color: Color(textLight),
+                          color: Color(textStroke),
                         ),
                         hintText: 'Email',
                         hintStyle: const TextStyle(
-                            color: Color(textLight), fontFamily: "Poppins"),
-                        focusColor: const Color(textLight),
+                            color: Color(textStroke), fontFamily: "Poppins"),
+                        focusColor: const Color(textStroke),
                       ),
                     ),
                   ],
@@ -111,18 +116,16 @@ class _SigninState extends State<Signin> {
               ],
             ),
             Column(
-              children: [ 
+              children: [
                 SizedBox(
                   height: 60.0,
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const Otp(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Signinmpinscreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor:

@@ -76,16 +76,13 @@ class _SignupState extends State<Signup> {
                       const SizedBox(
                         height: 5.0,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(50.0, 0, 50.0, 0),
-                        child: Text(
-                          'We will send verification code on your email',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: screenWidth * 0.04,
-                              color: const Color(textSubtitle),
-                              fontFamily: "Poppins"),
-                        ),
+                      Text(
+                        'We will send verification code on your email',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: screenWidth * 0.041,
+                            color: const Color(textSubtitle),
+                            fontFamily: "Poppins"),
                       ),
                     ],
                   ),
@@ -93,12 +90,12 @@ class _SignupState extends State<Signup> {
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        child: const Text(
+                        child: Text(
                           'Enter your email',
                           style: TextStyle(
-                              fontSize: 20.0,
+                              fontSize: screenWidth * 0.05,
                               fontWeight: FontWeight.w400,
-                              color: Color(textColor),
+                              color: const Color(textColor),
                               fontFamily: "Poppins"),
                         ),
                       ),
