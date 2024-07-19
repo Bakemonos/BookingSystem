@@ -1,4 +1,4 @@
-import 'package:app/pages/screen.dart';
+import 'package:app/pages/signin.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -40,7 +40,7 @@ class _SigninState extends State<Signinmpinscreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Screen()));
+                                    builder: (context) => const Signin()));
                           },
                         ),
                         const Spacer(),
@@ -111,19 +111,90 @@ class _SigninState extends State<Signinmpinscreen> {
                         ),
                       ),
                     ),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    Text(
+                      'Enter you MPIN',
+                      style: TextStyle(
+                          fontSize: screenWidth * 0.04,
+                          fontFamily: "Poppins",
+                          color: const Color(textSubtitle)),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    // Radio MPIN
+                    Container(
+                      width: double.infinity,
+                      height: 20,
+                      color: Colors.amber,
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [Text('FOR RADIO DESIGN LAYOUT')],
+                      ),
+                    ),
                   ],
                 ),
-                // Radio MPIN
-
-                // const Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   crossAxisAlignment: CrossAxisAlignment.center,
-                //   children: [],
-                // )
+                // SPACE BETWEEN
               ],
             ),
-            const Column(
-              children: [],
+            Column(
+              children: [
+                GestureDetector(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(15.0, 16.0, 15.0, 16.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: const Color(foregroundColor),
+                    ),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset("assets/mpinDesgin.svg"),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'MPIN Login',
+                          style: TextStyle(
+                              fontSize: screenWidth * 0.03,
+                              fontFamily: "Poppins",
+                              color: const Color(textSubtitle)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+                const SizedBox(
+                  height: 50.0,
+                ),
+                Container(
+                  padding: const EdgeInsets.only(left: 50.0, right: 50.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Help Center',
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: screenWidth * 0.03,
+                            color: const Color(textSubtitle),
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        'Forgot MPIN?',
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: screenWidth * 0.03,
+                            color: const Color(textSubtitle),
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),

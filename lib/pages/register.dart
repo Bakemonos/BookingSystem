@@ -10,6 +10,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final TextEditingController _dateController = TextEditingController();
+  String valueChoose = "Select";
   @override
   Widget build(BuildContext context) {
     bool isChecked = true;
@@ -89,10 +91,18 @@ class _RegisterState extends State<Register> {
                       ),
                       TextField(
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  borderSide: const BorderSide(
-                                      color: Color(textStroke))),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    width: 1, color: Color(textSubtitle)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Color(primaryColor),
+                                ),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
                               hintStyle:
                                   const TextStyle(color: Color(textStroke)),
                               hintText: 'Enter First Name')),
@@ -114,10 +124,18 @@ class _RegisterState extends State<Register> {
                       ),
                       TextField(
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  borderSide: const BorderSide(
-                                      color: Color(textStroke))),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    width: 1, color: Color(textSubtitle)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Color(primaryColor),
+                                ),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
                               hintStyle:
                                   const TextStyle(color: Color(textStroke)),
                               hintText: 'Enter Middle Name')),
@@ -139,10 +157,18 @@ class _RegisterState extends State<Register> {
                       ),
                       TextField(
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  borderSide: const BorderSide(
-                                      color: Color(textStroke))),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    width: 1, color: Color(textSubtitle)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  width: 2,
+                                  color: Color(primaryColor),
+                                ),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
                               hintStyle:
                                   const TextStyle(color: Color(textStroke)),
                               hintText: 'Enter Last Name')),
@@ -162,15 +188,84 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 5.0,
                       ),
-                      TextField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  borderSide: const BorderSide(
-                                      color: Color(textStroke))),
-                              hintStyle:
-                                  const TextStyle(color: Color(textStroke)),
-                              hintText: 'Select Gender')),
+                      Container(
+                        padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                        height: 50.0,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1, color: const Color(textSubtitle)),
+                            borderRadius: BorderRadius.circular(5)),
+                        child: DropdownButton<String>(
+                            value: valueChoose,
+                            items: [
+                              DropdownMenuItem(
+                                value: 'Select',
+                                child: Text(
+                                  'Select',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'Male',
+                                child: Text(
+                                  'Male',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'Female',
+                                child: Text(
+                                  'Female',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'Non-binary',
+                                child: Text(
+                                  'Non-binary',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'Other',
+                                child: Text(
+                                  'Other',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
+                              ),
+                            ],
+                            icon: const Icon(
+                              Icons.arrow_drop_down,
+                              color: Color(textColor),
+                            ),
+                            // iconSize: 24.0,
+                            isExpanded: true,
+                            style: const TextStyle(color: Color(textColor)),
+                            onChanged: (newValue) {
+                              setState(() {
+                                valueChoose = newValue!;
+                              });
+                            }),
+                      ),
+                      const SizedBox(
+                        height: 5.0,
+                      ),
                       const SizedBox(
                         height: 20.0,
                       ),
@@ -188,14 +283,30 @@ class _RegisterState extends State<Register> {
                         height: 5.0,
                       ),
                       TextField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  borderSide: const BorderSide(
-                                      color: Color(textStroke))),
-                              hintStyle:
-                                  const TextStyle(color: Color(textStroke)),
-                              hintText: 'Select Date of Birth')),
+                        controller: _dateController,
+                        decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 1, color: Color(textSubtitle)),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                width: 2,
+                                color: Color(primaryColor),
+                              ),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            hintStyle:
+                                const TextStyle(color: Color(textStroke)),
+                            suffixIcon:
+                                const Icon(Icons.calendar_month_outlined),
+                            hintText: 'Date of Birth'),
+                        readOnly: true,
+                        onTap: () {
+                          _selectDate();
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -318,5 +429,19 @@ class _RegisterState extends State<Register> {
         ),
       ),
     );
+  }
+
+  Future<void> _selectDate() async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null) {
+      setState(() {
+        _dateController.text = picked.toString().split(" ")[0];
+      });
+    }
   }
 }

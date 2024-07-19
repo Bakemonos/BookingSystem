@@ -71,7 +71,7 @@ class _ScreenState extends State<Screen> {
                             child: Text(
                               'SIGN IN',
                               style: TextStyle(
-                                fontSize: screenWidth * 0.05,
+                                fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.normal,
                                 fontFamily: "Poppins",
                                 color: const Color(textSubtitle),
