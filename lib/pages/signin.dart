@@ -1,4 +1,4 @@
-import 'package:app/pages/screen.dart';
+import 'package:app/pages/getstarted.dart';
 import 'package:app/pages/signinmpinscreen.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +44,8 @@ class _SigninState extends State<Signin> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Screen()));
+                                      builder: (context) =>
+                                          const Getstarted()));
                             },
                           ),
                           const Spacer(),

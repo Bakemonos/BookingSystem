@@ -1,4 +1,4 @@
-import 'package:app/pages/screen.dart';
+import 'package:app/pages/getstarted.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +11,7 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Screen(),
+      home: Getstarted(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,5 +1,6 @@
+import 'package:app/pages/getstarted.dart';
 import 'package:app/pages/otp.dart';
-import 'package:app/pages/screen.dart';
+
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,7 +39,7 @@ class _SignupState extends State<Signup> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Screen(),
+                    builder: (context) => const Getstarted(),
                   ),
                 );
               },
