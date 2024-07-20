@@ -2,7 +2,6 @@
 const textColor = 0xFF454545;
 const textSubtitle = 0xFF7F7F7F;
 const textLight = 0xFFF5F5F5;
-
 const textStroke = 0xFFA8A8A8;
 
 // THEME

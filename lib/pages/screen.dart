@@ -46,7 +46,7 @@ class _ScreenState extends State<Screen> {
                     Stack(
                       children: [
                         SizedBox(
-                          height: 50,
+                          height: 55,
                           width: double.infinity,
                           child: OutlinedButton(
                             onPressed: () {
