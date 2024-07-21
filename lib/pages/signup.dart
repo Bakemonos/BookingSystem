@@ -1,6 +1,6 @@
 import 'package:app/pages/getstarted.dart';
 import 'package:app/pages/otp.dart';
-
+import 'package:app/pages/signin.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,83 +21,74 @@ class _SignupState extends State<Signup> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-          backgroundColor: const Color(backgroundColor),
-          appBar: AppBar(
-            centerTitle: true,
-            title: Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: screenWidth * 0.05,
-                fontFamily: "Poppins",
-                color: const Color(textColor),
-              ),
-            ),
-            backgroundColor: const Color(foregroundColor),
-            automaticallyImplyLeading: false,
-            leading: IconButton(
+        backgroundColor: const Color(backgroundColor),
+        appBar: AppBar(
+          backgroundColor: const Color(foregroundColor),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Sign Up',
+            style:
+                TextStyle(fontSize: screenWidth * 0.05, fontFamily: "Poppins"),
+          ),
+          leading: IconButton(
               onPressed: () {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Getstarted(),
-                  ),
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Getstarted()));
               },
-              icon: SvgPicture.asset(
-                'assets/arrow.svg',
+              icon: SvgPicture.asset("assets/arrow.svg")),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 500,
+              decoration: const BoxDecoration(
+                color: Color(foregroundColor),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.circular(50),
+                ),
               ),
-            ),
-          ),
-          body: Stack(
-            children: [
-              SvgPicture.asset(
-                alignment: Alignment.center,
-                'assets/emailShape.svg',
-                width: screenWidth,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(25.0),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(25.0, 0, 25.0, 25.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
-                        SvgPicture.asset(
-                          'assets/signupImage.svg',
-                          alignment: Alignment.topCenter,
-                        ),
                         const SizedBox(
                           height: 30.0,
                         ),
                         Text(
-                          'Verification code on your email',
+                          'Get Started',
                           style: TextStyle(
                               color: const Color(textColor),
-                              fontSize: screenWidth * 0.05,
-                              fontFamily: "Poppins"),
+                              fontFamily: "Poppins",
+                              fontSize: screenWidth * 0.06),
                         ),
                         const SizedBox(
                           height: 5.0,
                         ),
                         Text(
-                          'We will send verification code on your email',
-                          textAlign: TextAlign.center,
+                          'Sign Up to Unlock Appointment Power',
                           style: TextStyle(
-                              fontSize: screenWidth * 0.041,
                               color: const Color(textSubtitle),
-                              fontFamily: "Poppins"),
+                              fontFamily: "Poppins",
+                              fontSize: screenWidth * 0.04),
                         ),
-                      ],
-                    ),
-                    Column(
-                      children: [
+                        const SizedBox(
+                          height: 20.0,
+                        ),
                         Container(
                           alignment: Alignment.topLeft,
                           child: Text(
                             'Enter your email',
                             style: TextStyle(
                                 fontSize: screenWidth * 0.04,
-                                fontWeight: FontWeight.w400,
                                 color: const Color(textColor),
                                 fontFamily: "Poppins"),
                           ),
@@ -107,66 +98,101 @@ class _SignupState extends State<Signup> {
                         ),
                         TextField(
                           decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    width: 1, color: Color(textStroke)),
-                                borderRadius: BorderRadius.circular(5),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 1, color: Color(primaryColor)),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                width: 2,
+                                color: Color(primaryColor),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  width: 2,
-                                  color: Color(primaryColor),
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              prefixIcon: const Icon(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            prefixIcon: const Padding(
+                              padding: EdgeInsets.only(left: 20.0, right: 10.0),
+                              child: Icon(
                                 Icons.email_outlined,
+                                color: Color(primaryColor),
+                              ),
+                            ),
+                            hintText: 'Email',
+                            hintStyle: const TextStyle(
                                 color: Color(textStroke),
-                              ),
-                              hintText: 'Email',
-                              hintStyle: const TextStyle(
-                                  color: Color(textStroke),
-                                  fontFamily: "Poppins")),
-                        ),
-                        const SizedBox(
-                          height: 30.0,
-                        ),
-                        SizedBox(
-                          height: 60.0,
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Otp(),
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(primaryColor),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                            ),
-                            child: Text(
-                              'Next',
-                              style: TextStyle(
-                                fontSize: screenWidth * 0.04,
-                                fontWeight: FontWeight.normal,
-                                color: const Color(textLight),
-                                fontFamily: "Poppins",
-                              ),
-                            ),
+                                fontFamily: "Poppins"),
+                            focusColor: const Color(textStroke),
                           ),
                         ),
                       ],
                     ),
+                    Column(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Otp(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(primaryColor),
+                            minimumSize: const Size(
+                                double.infinity, 48.0), // Set width and height
+                          ),
+                          child: Text(
+                            'Next',
+                            style: TextStyle(
+                              color: const Color(textLight),
+                              fontSize: screenWidth * 0.05,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 48,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Already have an account?',
+                                style: TextStyle(
+                                    fontSize: screenWidth * 0.04,
+                                    fontFamily: "Poppins",
+                                    color: const Color(textColor)),
+                              ),
+                              const SizedBox(
+                                width: 10.0,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Signin()));
+                                },
+                                child: Text('Sign in',
+                                    style: TextStyle(
+                                        fontSize: screenWidth * 0.04,
+                                        fontFamily: "Poppins",
+                                        color: const Color(primaryColor))),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),
-            ],
-          )),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

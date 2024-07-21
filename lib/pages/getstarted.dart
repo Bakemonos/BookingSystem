@@ -32,7 +32,7 @@ class _GetstartedState extends State<Getstarted> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  height: 430,
+                  height: 480,
                   width: screenWidth,
                   decoration: const BoxDecoration(
                     color: Color(foregroundColor),
