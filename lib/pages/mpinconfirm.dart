@@ -11,8 +11,7 @@ class Mpinconfirm extends StatefulWidget {
   @override
   State<Mpinconfirm> createState() => _MpinconfirmState();
 }
-
-class _MpinconfirmState extends State<Mpinconfirm> {
+ class _MpinconfirmState extends State<Mpinconfirm> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
