@@ -115,15 +115,15 @@ class _SigninState extends State<Signinmpinscreen> {
                     ),
 
                     // VISIBILITY TOGGLE BUTTON
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isPinVisible = !isPinVisible;
-                          });
-                        },
-                        icon: Icon(isPinVisible
-                            ? Icons.visibility_off
-                            : Icons.visibility)),
+                    // IconButton(
+                    //     onPressed: () {
+                    //       setState(() {
+                    //         isPinVisible = !isPinVisible;
+                    //       });
+                    //     },
+                    //     icon: Icon(isPinVisible
+                    //         ? Icons.visibility_off
+                    //         : Icons.visibility)),
 
                     const SizedBox(
                       width: 100,
@@ -219,6 +219,31 @@ class _SigninState extends State<Signinmpinscreen> {
                                       child: SvgPicture.asset(
                                         "assets/backspace.svg",
                                       ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Help Center',
+                                      style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontSize: screenWidth * 0.03,
+                                          color: const Color(textSubtitle),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      'Forgot MPIN?',
+                                      style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontSize: screenWidth * 0.03,
+                                          color: const Color(textSubtitle),
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
