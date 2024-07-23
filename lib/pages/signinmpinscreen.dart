@@ -200,14 +200,26 @@ class _SigninState extends State<Signinmpinscreen> {
                                 ),
                                 const SizedBox(height: 20.0),
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     TextButton(
                                       onPressed: () =>
-                                          setState(() => enteredPin = ""),
-                                      child: const Icon(Icons.backspace),
+                                          setState(() => enteredPin = ''),
+                                      child: SvgPicture.asset("assets/x.svg"),
                                     ),
-                                    const SizedBox(width: 20.0),
+                                    const SizedBox(width: 30.0),
                                     numButton(0),
+                                    const SizedBox(width: 30.0),
+                                    TextButton(
+                                      onPressed: () => setState(() =>
+                                          enteredPin = enteredPin.isNotEmpty
+                                              ? enteredPin.substring(
+                                                  0, enteredPin.length - 1)
+                                              : enteredPin),
+                                      child: SvgPicture.asset(
+                                        "assets/backspace.svg",
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ],
