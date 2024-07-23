@@ -11,12 +11,50 @@ class Signinmpinscreen extends StatefulWidget {
 }
 
 class _SigninState extends State<Signinmpinscreen> {
+  String enteredPin = '';
+  bool isPinVisible = false;
+
+  Widget newButton(int number) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: TextButton(
+        onPressed: () {
+          setState(() {
+            if (enteredPin.length < 4) {
+              enteredPin += number.toString();
+            }
+          });
+        },
+        child: Text(
+          number.toString(),
+          style: const TextStyle(fontSize: 24.0, color: Color(textColor)),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     // double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: const Color(backgroundColor),
+      appBar: AppBar(
+        backgroundColor: const Color(foregroundColor),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Sign In',
+          style: TextStyle(fontSize: screenWidth * 0.05, fontFamily: "Poppins"),
+        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Signin()));
+            },
+            icon: SvgPicture.asset("assets/arrow.svg")),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
@@ -25,95 +63,11 @@ class _SigninState extends State<Signinmpinscreen> {
             Column(
               children: [
                 const SizedBox(
-                  height: 50.0,
+                  height: 150.0,
                 ),
-                Stack(
-                  children: [
-                    Container(
-                        alignment: Alignment.center,
-                        child: SvgPicture.asset("assets/signInBackground.svg")),
-                    Row(
-                      children: [
-                        IconButton(
-                          icon: SvgPicture.asset("assets/arrow.svg"),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Signin()));
-                          },
-                        ),
-                        const Spacer(),
-                        Flexible(
-                          flex: 2,
-                          child: Text(
-                            'Sign In',
-                            style: TextStyle(
-                                fontSize: screenWidth * 0.05,
-                                fontFamily: "Poppins",
-                                color: const Color(textColor)),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+
                 Column(
                   children: [
-                    const SizedBox(
-                      height: 5.0,
-                    ),
-                    Text(
-                      'Good Day!',
-                      style: TextStyle(
-                          fontSize: screenWidth * 0.05,
-                          fontFamily: "Poppins",
-                          color: const Color(textSubtitle)),
-                    ),
-                    const SizedBox(
-                      height: 20.0,
-                    ),
-                    const Text(
-                      '',
-                    ),
-                    const SizedBox(
-                      height: 5.0,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(
-                              width: 1, color: const Color(primaryColor))),
-                      child: Container(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        alignment: Alignment.centerLeft,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'ricojaygonzales5@gmail.com',
-                              style: TextStyle(
-                                  fontSize: screenWidth * 0.04,
-                                  fontFamily: "Poppinss",
-                                  color: const Color(textColor)),
-                            ),
-                            IconButton(
-                                padding: const EdgeInsets.only(right: 20.0),
-                                onPressed: () {},
-                                icon: SvgPicture.asset(
-                                  "assets/signInIcon.svg",
-                                  // ignore: deprecated_member_use
-                                  color: const Color(primaryColor),
-                                ))
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20.0,
-                    ),
                     Text(
                       'Enter you MPIN',
                       style: TextStyle(
@@ -125,24 +79,43 @@ class _SigninState extends State<Signinmpinscreen> {
                       height: 10.0,
                     ),
                     // Radio MPIN
-                    SizedBox(
+
+                    // ListView(
+                    //   padding: const EdgeInsets.symmetric(horizontal: 24),
+                    //   physics: const BouncingScrollPhysics(),
+                    //   children: [
+                    //     Row(
+                    //       mainAxisAlignment: MainAxisAlignment.center,
+                    //       children: List.generate(
+                    //         4,
+                    //         (index) {
+                    //           return Container(
+                    //             margin: const EdgeInsets.all(6.0),
+                    //             width: isPinVisible ? 50 : 16,
+                    //             height: isPinVisible ? 50 : 16,
+                    //             decoration: BoxDecoration(
+                    //               borderRadius: BorderRadius.circular(6.0),
+                    //               color: index < enteredPin.length
+                    //                   ? isPinVisible
+                    //                       ? Colors.green
+                    //                       : CupertinoColors.activeBlue
+                    //                   : CupertinoColors.activeBlue
+                    //                       .withOpacity(0.1),
+                    //             ),
+                    //           );
+                    //         },
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+
+                    const SizedBox(
                       width: 100,
                       height: 20,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          for (int i = 0; i < 4; i++)
-                            Container(
-                              width: 18.0,
-                              height: 18.0,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 1, color: const Color(textSubtitle)),
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ],
@@ -152,54 +125,54 @@ class _SigninState extends State<Signinmpinscreen> {
             ),
             Column(
               children: [
-                Container(
-                  padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 20.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: const Color(foregroundColor),
-                  ),
-                  child: Column(
-                    children: [
-                      SvgPicture.asset("assets/mpinDesgin.svg"),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(
-                        'MPIN Login',
-                        style: TextStyle(
-                            fontSize: screenWidth * 0.03,
-                            fontFamily: "Poppins",
-                            color: const Color(textSubtitle)),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    _displayBottomSheet(context);
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 20.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: const Color(primaryColor),
+                    ),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset("assets/MpinIcon.svg"),
+                        Text(
+                          'MPIN Login',
+                          style: TextStyle(
+                              fontSize: screenWidth * 0.03,
+                              fontFamily: "Poppins",
+                              color: const Color(textLight),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 50.0,
                 ),
-                Container(
-                  padding: const EdgeInsets.only(left: 50.0, right: 50.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Help Center',
-                        style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: screenWidth * 0.03,
-                            color: const Color(textSubtitle),
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Forgot MPIN?',
-                        style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: screenWidth * 0.03,
-                            color: const Color(textSubtitle),
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      'Help Center',
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: screenWidth * 0.03,
+                          color: const Color(textSubtitle),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Forgot MPIN?',
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: screenWidth * 0.03,
+                          color: const Color(textSubtitle),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -210,35 +183,21 @@ class _SigninState extends State<Signinmpinscreen> {
   }
 }
 
-// class CustomRadioButtonListTile extends StatelessWidget {
-//   final int value;
-//   final int groupValue;
-//   final Function(dynamic) onChanged;
-
-//   const CustomRadioButtonListTile({
-//     super.key,
-//     required this.groupValue,
-//     required this.value,
-//     required this.onChanged,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       mainAxisSize: MainAxisSize.min,
-//       children: List.generate(4, (index) => _buildRadioDot(index + 1)),
-//     );
-//   }
-
-//   Widget _buildRadioDot(int index) {
-//     return Container(
-//       width: 10.0,
-//       height: 10.0,
-//       margin: const EdgeInsets.symmetric(horizontal: 5.0),
-//       decoration: BoxDecoration(
-//         shape: BoxShape.circle,
-//         color: groupValue == index ? Colors.blue : Colors.grey,
-//       ),
-//     );
-//   }
-// }
+Future _displayBottomSheet(BuildContext context) {
+  return showModalBottomSheet(
+    backgroundColor: Colors.transparent,
+    enableDrag: false,
+    barrierColor: Colors.transparent,
+    context: context,
+    builder: (context) => Container(
+      height: 400,
+      decoration: const BoxDecoration(
+        color: Color(foregroundColor),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(50),
+          topRight: Radius.circular(50),
+        ),
+      ),
+    ),
+  );
+}
