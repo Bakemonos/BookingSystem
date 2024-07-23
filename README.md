@@ -1,6 +1,6 @@
 # app
 
-A new Flutter project.
+Appointment System
 
 ## Getting Started
 
