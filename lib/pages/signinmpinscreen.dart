@@ -1,5 +1,6 @@
 import 'package:app/pages/signin.dart';
 import 'package:app/properties.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -14,7 +15,7 @@ class _SigninState extends State<Signinmpinscreen> {
   String enteredPin = '';
   bool isPinVisible = false;
 
-  Widget newButton(int number) {
+  Widget numButton(int number) {
     return Padding(
       padding: const EdgeInsets.only(top: 16.0),
       child: TextButton(
@@ -78,36 +79,51 @@ class _SigninState extends State<Signinmpinscreen> {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    // Radio MPIN
 
-                    // ListView(
-                    //   padding: const EdgeInsets.symmetric(horizontal: 24),
-                    //   physics: const BouncingScrollPhysics(),
-                    //   children: [
-                    //     Row(
-                    //       mainAxisAlignment: MainAxisAlignment.center,
-                    //       children: List.generate(
-                    //         4,
-                    //         (index) {
-                    //           return Container(
-                    //             margin: const EdgeInsets.all(6.0),
-                    //             width: isPinVisible ? 50 : 16,
-                    //             height: isPinVisible ? 50 : 16,
-                    //             decoration: BoxDecoration(
-                    //               borderRadius: BorderRadius.circular(6.0),
-                    //               color: index < enteredPin.length
-                    //                   ? isPinVisible
-                    //                       ? Colors.green
-                    //                       : CupertinoColors.activeBlue
-                    //                   : CupertinoColors.activeBlue
-                    //                       .withOpacity(0.1),
-                    //             ),
-                    //           );
-                    //         },
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
+                    // MPIN CODE HERE
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        4,
+                        (index) {
+                          return Container(
+                            margin: const EdgeInsets.all(6.0),
+                            width: isPinVisible ? 50 : 16,
+                            height: isPinVisible ? 50 : 16,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6.0),
+                              color: index < enteredPin.length
+                                  ? isPinVisible
+                                      ? const Color(primaryColor)
+                                      : const Color(primaryColor)
+                                  : CupertinoColors.activeBlue.withOpacity(0.1),
+                            ),
+                            child: isPinVisible && index < enteredPin.length
+                                ? Center(
+                                    child: Text(
+                                      enteredPin[index],
+                                      style: TextStyle(
+                                          fontSize: screenWidth * 0.05,
+                                          fontFamily: "Poppins",
+                                          color: const Color(textLight)),
+                                    ),
+                                  )
+                                : null,
+                          );
+                        },
+                      ),
+                    ),
+
+                    // VISIBILITY TOGGLE BUTTON
+                    IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isPinVisible = !isPinVisible;
+                          });
+                        },
+                        icon: Icon(isPinVisible
+                            ? Icons.visibility_off
+                            : Icons.visibility)),
 
                     const SizedBox(
                       width: 100,
@@ -127,7 +143,77 @@ class _SigninState extends State<Signinmpinscreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    _displayBottomSheet(context);
+                    showModalBottomSheet(
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      barrierColor: Colors.transparent,
+                      context: context,
+                      builder: (context) => Container(
+                        height: 400,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          color: Color(foregroundColor),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(50),
+                            topRight: Radius.circular(50),
+                          ),
+                        ),
+                        // (index) => numButton();
+
+                        child: Padding(
+                            padding:
+                                const EdgeInsets.only(left: 80, right: 80.0),
+                            child: Column(
+                              children: [
+                                const SizedBox(height: 20.0),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    numButton(1),
+                                    const SizedBox(width: 30.0),
+                                    numButton(2),
+                                    const SizedBox(width: 30.0),
+                                    numButton(3),
+                                  ],
+                                ),
+                                const SizedBox(height: 20.0),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    numButton(4),
+                                    const SizedBox(width: 30.0),
+                                    numButton(5),
+                                    const SizedBox(width: 30.0),
+                                    numButton(6),
+                                  ],
+                                ),
+                                const SizedBox(height: 20.0),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    numButton(7),
+                                    const SizedBox(width: 30.0),
+                                    numButton(8),
+                                    const SizedBox(width: 30.0),
+                                    numButton(9),
+                                  ],
+                                ),
+                                const SizedBox(height: 20.0),
+                                Row(
+                                  children: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          setState(() => enteredPin = ""),
+                                      child: const Icon(Icons.backspace),
+                                    ),
+                                    const SizedBox(width: 20.0),
+                                    numButton(0),
+                                  ],
+                                ),
+                              ],
+                            )),
+                      ),
+                    );
                   },
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 20.0),
@@ -181,23 +267,4 @@ class _SigninState extends State<Signinmpinscreen> {
       ),
     );
   }
-}
-
-Future _displayBottomSheet(BuildContext context) {
-  return showModalBottomSheet(
-    backgroundColor: Colors.transparent,
-    enableDrag: false,
-    barrierColor: Colors.transparent,
-    context: context,
-    builder: (context) => Container(
-      height: 400,
-      decoration: const BoxDecoration(
-        color: Color(foregroundColor),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(50),
-          topRight: Radius.circular(50),
-        ),
-      ),
-    ),
-  );
 }
