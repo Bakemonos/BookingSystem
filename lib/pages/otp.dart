@@ -36,7 +36,7 @@ class _OtpState extends State<Otp> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Signup()));
               },
-              icon: SvgPicture.asset("assets/arrow.svg")),
+              icon: SvgPicture.asset("assets/Icons/arrow.svg")),
         ),
         body: Padding(
           padding: const EdgeInsets.all(25.0),

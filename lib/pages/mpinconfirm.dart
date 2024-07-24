@@ -34,7 +34,7 @@ class _MpinconfirmState extends State<Mpinconfirm> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Register()));
               },
-              icon: SvgPicture.asset("assets/arrow.svg")),
+              icon: SvgPicture.asset("assets/Icons/arrow.svg")),
         ),
         body: Padding(
           padding: const EdgeInsets.all(25.0),

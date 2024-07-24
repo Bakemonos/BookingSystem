@@ -38,7 +38,7 @@ class _SignupState extends State<Signup> {
                     MaterialPageRoute(
                         builder: (context) => const Getstarted()));
               },
-              icon: SvgPicture.asset("assets/arrow.svg")),
+              icon: SvgPicture.asset("assets/Icons/arrow.svg")),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,

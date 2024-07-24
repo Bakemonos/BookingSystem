@@ -56,7 +56,7 @@ class _SigninState extends State<Signinmpinscreen> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Signin()));
             },
-            icon: SvgPicture.asset("assets/arrow.svg")),
+            icon: SvgPicture.asset("assets/Icons/arrow.svg")),
       ),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
@@ -215,7 +215,7 @@ class _SigninState extends State<Signinmpinscreen> {
                                           13,
                                         ),
                                         child: SvgPicture.asset(
-                                            "assets/XMpin.svg"),
+                                            "assets/Icons/XMpin.svg"),
                                       ),
                                     ),
                                     const SizedBox(width: 30.0),
@@ -233,7 +233,7 @@ class _SigninState extends State<Signinmpinscreen> {
                                         child: SvgPicture.asset(
                                           height: 24.0,
                                           width: 24.0,
-                                          "assets/backspace.svg",
+                                          "assets/Icons/backspace.svg",
                                         ),
                                       ),
                                     ),
@@ -277,7 +277,7 @@ class _SigninState extends State<Signinmpinscreen> {
                     ),
                     child: Column(
                       children: [
-                        SvgPicture.asset("assets/MpinIcon.svg"),
+                        SvgPicture.asset("assets/Icons/MpinIcon.svg"),
                         Text(
                           'MPIN Login',
                           style: TextStyle(

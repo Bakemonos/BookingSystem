@@ -46,7 +46,7 @@ class _RegisterState extends State<Register> {
                       ),
                       child: Row(
                         children: [
-                          SvgPicture.asset("assets/termsAndCondition.svg"),
+                          SvgPicture.asset("assets/Icons/termsAndCondition.svg"),
                           const Spacer(
                             flex: 1,
                           ),

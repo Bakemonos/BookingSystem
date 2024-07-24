@@ -30,7 +30,7 @@ class _SplashscreenState extends State<Splashscreen> {
         child: Center(
           child: Image.asset(
             width: 230,
-            'assets/praetorian.png',
+            'assets/Pictures/praetorian.png',
             fit: BoxFit.contain,
           ),
         ),
