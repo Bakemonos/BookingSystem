@@ -16,19 +16,21 @@ class _SigninState extends State<Signinmpinscreen> {
   bool isPinVisible = false;
 
   Widget numButton(int number) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
-      child: TextButton(
-        onPressed: () {
-          setState(() {
-            if (enteredPin.length < 4) {
-              enteredPin += number.toString();
-            }
-          });
-        },
+    return TextButton(
+      onPressed: () {
+        setState(() {
+          if (enteredPin.length < 4) {
+            enteredPin += number.toString();
+          }
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 5, 8, 5),
         child: Text(
+          textAlign: TextAlign.center,
           number.toString(),
-          style: const TextStyle(fontSize: 24.0, color: Color(textColor)),
+          style: const TextStyle(
+              fontSize: 24, color: Color(textColor), fontFamily: "Poppins"),
         ),
       ),
     );
@@ -88,10 +90,10 @@ class _SigninState extends State<Signinmpinscreen> {
                         (index) {
                           return Container(
                             margin: const EdgeInsets.all(6.0),
-                            width: isPinVisible ? 50 : 16,
-                            height: isPinVisible ? 50 : 16,
+                            width: isPinVisible ? 50 : 18,
+                            height: isPinVisible ? 50 : 18,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(6.0),
+                              borderRadius: BorderRadius.circular(10.0),
                               color: index < enteredPin.length
                                   ? isPinVisible
                                       ? const Color(primaryColor)
@@ -165,7 +167,7 @@ class _SigninState extends State<Signinmpinscreen> {
                                 const EdgeInsets.only(left: 80, right: 80.0),
                             child: Column(
                               children: [
-                                const SizedBox(height: 20.0),
+                                const SizedBox(height: 30.0),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -205,7 +207,16 @@ class _SigninState extends State<Signinmpinscreen> {
                                     TextButton(
                                       onPressed: () =>
                                           setState(() => enteredPin = ''),
-                                      child: SvgPicture.asset("assets/x.svg"),
+                                      child: Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                          8,
+                                          13,
+                                          8,
+                                          13,
+                                        ),
+                                        child: SvgPicture.asset(
+                                            "assets/XMpin.svg"),
+                                      ),
                                     ),
                                     const SizedBox(width: 30.0),
                                     numButton(0),
@@ -216,14 +227,20 @@ class _SigninState extends State<Signinmpinscreen> {
                                               ? enteredPin.substring(
                                                   0, enteredPin.length - 1)
                                               : enteredPin),
-                                      child: SvgPicture.asset(
-                                        "assets/backspace.svg",
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 10.0),
+                                        child: SvgPicture.asset(
+                                          height: 24.0,
+                                          width: 24.0,
+                                          "assets/backspace.svg",
+                                        ),
                                       ),
                                     ),
                                   ],
                                 ),
                                 const SizedBox(
-                                  height: 10.0,
+                                  height: 30.0,
                                 ),
                                 Row(
                                   mainAxisAlignment:

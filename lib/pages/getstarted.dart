@@ -22,7 +22,7 @@ class _GetstartedState extends State<Getstarted> {
         children: [
           Image.asset(
             width: double.infinity,
-            'assets/backModel.png',
+            'assets/AppBackground.png',
             fit: BoxFit.contain,
           ),
           SizedBox(
