@@ -46,7 +46,8 @@ class _RegisterState extends State<Register> {
                       ),
                       child: Row(
                         children: [
-                          SvgPicture.asset("assets/Icons/termsAndCondition.svg"),
+                          SvgPicture.asset(
+                              "assets/Icons/termsAndCondition.svg"),
                           const Spacer(
                             flex: 1,
                           ),
@@ -337,80 +338,85 @@ class _RegisterState extends State<Register> {
                       height: 5.0,
                     ),
                     Container(
-                      alignment: Alignment.center,
                       padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                      alignment: Alignment.center,
                       height: 55.0,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           border: Border.all(
                               width: 1, color: const Color(textSubtitle)),
                           borderRadius: BorderRadius.circular(5)),
-                      child: DropdownButton<String>(
-                          value: valueChoose,
-                          items: [
-                            DropdownMenuItem(
-                              value: 'Select',
-                              child: Text(
-                                'Select',
-                                style: TextStyle(
-                                    fontSize: screenWidth * 0.04,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textSubtitle)),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                            dropdownColor: const Color(foregroundColor),
+                            borderRadius: BorderRadius.circular(8.0),
+                            value: valueChoose,
+                            items: [
+                              DropdownMenuItem(
+                                value: 'Select',
+                                child: Text(
+                                  'Select',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
                               ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Male',
-                              child: Text(
-                                'Male',
-                                style: TextStyle(
-                                    fontSize: screenWidth * 0.04,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textSubtitle)),
+                              DropdownMenuItem(
+                                value: 'Male',
+                                child: Text(
+                                  'Male',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
                               ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Female',
-                              child: Text(
-                                'Female',
-                                style: TextStyle(
-                                    fontSize: screenWidth * 0.04,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textSubtitle)),
+                              DropdownMenuItem(
+                                value: 'Female',
+                                child: Text(
+                                  'Female',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
                               ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Non-binary',
-                              child: Text(
-                                'Non-binary',
-                                style: TextStyle(
-                                    fontSize: screenWidth * 0.04,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textSubtitle)),
+                              DropdownMenuItem(
+                                value: 'Non-binary',
+                                child: Text(
+                                  'Non-binary',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
                               ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Other',
-                              child: Text(
-                                'Other',
-                                style: TextStyle(
-                                    fontSize: screenWidth * 0.04,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textSubtitle)),
+                              DropdownMenuItem(
+                                value: 'Other',
+                                child: Text(
+                                  'Other',
+                                  style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: "Poppins",
+                                      color: const Color(textSubtitle)),
+                                ),
                               ),
+                            ],
+                            icon: const Icon(
+                              Icons.arrow_drop_down,
+                              color: Color(textColor),
                             ),
-                          ],
-                          icon: const Icon(
-                            Icons.arrow_drop_down,
-                            color: Color(textColor),
-                          ),
-                          // iconSize: 24.0,
-                          isExpanded: true,
-                          style: const TextStyle(color: Color(textColor)),
-                          onChanged: (newValue) {
-                            setState(() {
-                              valueChoose = newValue!;
-                            });
-                          }),
+
+                            // iconSize: 24.0,
+                            isExpanded: true,
+                            style: const TextStyle(color: Color(textColor)),
+                            onChanged: (newValue) {
+                              setState(() {
+                                valueChoose = newValue!;
+                              });
+                            }),
+                      ),
                     ),
                     const SizedBox(
                       height: 5.0,
