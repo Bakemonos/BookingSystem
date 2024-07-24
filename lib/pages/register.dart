@@ -16,13 +16,15 @@ class _RegisterState extends State<Register> {
   bool isChecked = false;
   void dialogpopup() {
     double screenWidth = MediaQuery.of(context).size.width;
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return Dialog(
+          insetPadding: const EdgeInsets.all(20.0),
           child: Container(
-              height: 426,
-              width: 328,
+              height: 600,
+              width: 800,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 color: Color(foregroundColor),
@@ -31,7 +33,6 @@ class _RegisterState extends State<Register> {
                 children: [
                   Container(
                     height: 62,
-                    width: double.infinity,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8.0),
@@ -54,7 +55,7 @@ class _RegisterState extends State<Register> {
                             style: TextStyle(
                                 color: const Color(textLight),
                                 fontFamily: "Poppins",
-                                fontSize: screenWidth * 0.04,
+                                fontSize: screenWidth * 0.05,
                                 fontWeight: FontWeight.w400),
                           ),
                           const Spacer(
@@ -71,25 +72,31 @@ class _RegisterState extends State<Register> {
                       child: SingleChildScrollView(
                     child: Padding(
                       padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                      child: Text('1. Eligibility & Use:\n'
-                          'You must be at least 18 years old to use the App.\n'
-                          'You are responsible for maintaining your login information and activity within the App.\n'
-                          'Use the App lawfully, respectfully, and for its intended purpose (appointment scheduling).\n'
-                          '2. Content Ownership:\n'
-                          'We own the App content (text, images, code, etc.). Don\'t copy, modify, or distribute it without permission.\n'
-                          'You own the content you submit (appointments, notes, etc.). You grant us a license to display it within the App.\n'
-                          '3. Disclaimers & Limitations:\n'
-                          'The App is provided "as is" with no guarantees of uninterrupted or error-free service.\n'
-                          'We are not liable for any damages arising from App use.\n'
-                          '4. Termination:\n'
-                          'We may terminate your access for any reason. You can terminate your account anytime.\n'
-                          '5. Governing Law & Disputes:\n'
-                          'These Terms are governed by the laws of [Your State]. Disputes will be settled through arbitration.\n'
-                          '6. Entire Agreement:\n'
-                          'This is the entire agreement between us. If any part is invalid, the rest remains enforceable.\n'
-                          '7. Contact:\n'
-                          'For questions, please contact us at [Your Email Address].\n'
-                          'This is a concise and essential version of terms and conditions for your appointment app. Remember to replace [Your State] and [Your Email Address] with your specific information.'),
+                      child: Text(
+                        '1. Eligibility & Use:\n'
+                        'You must be at least 18 years old to use the App.\n'
+                        'You are responsible for maintaining your login information and activity within the App.\n'
+                        'Use the App lawfully, respectfully, and for its intended purpose (appointment scheduling).\n'
+                        '2. Content Ownership:\n'
+                        'We own the App content (text, images, code, etc.). Don\'t copy, modify, or distribute it without permission.\n'
+                        'You own the content you submit (appointments, notes, etc.). You grant us a license to display it within the App.\n'
+                        '3. Disclaimers & Limitations:\n'
+                        'The App is provided "as is" with no guarantees of uninterrupted or error-free service.\n'
+                        'We are not liable for any damages arising from App use.\n'
+                        '4. Termination:\n'
+                        'We may terminate your access for any reason. You can terminate your account anytime.\n'
+                        '5. Governing Law & Disputes:\n'
+                        'These Terms are governed by the laws of [Your State]. Disputes will be settled through arbitration.\n'
+                        '6. Entire Agreement:\n'
+                        'This is the entire agreement between us. If any part is invalid, the rest remains enforceable.\n'
+                        '7. Contact:\n'
+                        'For questions, please contact us at [Your Email Address].\n'
+                        'This is a concise and essential version of terms and conditions for your appointment app. Remember to replace [Your State] and [Your Email Address] with your specific information.',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: "Poppins",
+                            color: Color(textSubtitle)),
+                      ),
                     ),
                   )),
                   const SizedBox(
@@ -102,7 +109,7 @@ class _RegisterState extends State<Register> {
                       children: [
                         OutlinedButton(
                           style: OutlinedButton.styleFrom(
-                            minimumSize: const Size(125, 40.0),
+                            minimumSize: const Size(150, 48.0),
                             side: const BorderSide(
                               color: Color(
                                   primaryColor), // Set your desired outline color
@@ -124,13 +131,10 @@ class _RegisterState extends State<Register> {
                                 color: const Color(primaryColor)),
                           ),
                         ),
-                        const Spacer(
-                          flex: 1,
-                        ),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(primaryColor),
-                                minimumSize: const Size(125, 40.0)),
+                                minimumSize: const Size(150, 48.0)),
                             onPressed: () {
                               setState(() {
                                 isChecked = true;
@@ -335,7 +339,7 @@ class _RegisterState extends State<Register> {
                     Container(
                       alignment: Alignment.center,
                       padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                      height: 48.0,
+                      height: 55.0,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -477,12 +481,20 @@ class _RegisterState extends State<Register> {
                           }),
                     ),
                     const SizedBox(width: 5.0),
-                    Text(
-                      'I have agreed to the privacy and policy',
-                      style: TextStyle(
-                        fontFamily: "Poppins",
-                        color: const Color(textSubtitle),
-                        fontSize: screenWidth * 0.04,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isChecked = false;
+                          dialogpopup();
+                        });
+                      },
+                      child: Text(
+                        'I have agreed to the privacy and policy',
+                        style: TextStyle(
+                          fontFamily: "Poppins",
+                          color: const Color(textSubtitle),
+                          fontSize: screenWidth * 0.04,
+                        ),
                       ),
                     )
                   ],
