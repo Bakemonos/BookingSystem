@@ -107,7 +107,7 @@ class _SignupState extends State<Signup> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                width: 2,
+                                width: 1,
                                 color: Color(primaryColor),
                               ),
                               borderRadius: BorderRadius.circular(5.r),
