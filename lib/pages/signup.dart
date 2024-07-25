@@ -13,6 +13,9 @@ class Signup extends StatefulWidget {
   State<Signup> createState() => _SignupState();
 }
 
+final TextEditingController emailController = TextEditingController();
+bool emailHasError = false;
+
 class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
@@ -98,49 +101,87 @@ class _SignupState extends State<Signup> {
                         SizedBox(
                           height: 5.h,
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  width: 1, color: Color(primaryColor)),
-                              borderRadius: BorderRadius.circular(5.r),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1,
-                                color: Color(primaryColor),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextField(
+                              controller: emailController,
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      width: 1, color: emailHasError ? Colors.red :  const Color(primaryColor)),
+                                  borderRadius: BorderRadius.circular(5.r),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 2,
+                                    color: emailHasError ? Colors.red : const Color(primaryColor),
+                                  ),
+                                  borderRadius: BorderRadius.circular(5.r),
+                                ),
+                                prefixIcon: Padding(
+                                  padding: EdgeInsets.only(left: 20.w, right: 10.w),
+                                  child: Icon(
+                                    size: 24.w,
+                                    Icons.email_outlined,
+                                    color: const Color(primaryColor),
+                                  ),
+                                ),
+                                hintText: 'Enter your email',
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 20.w, vertical: 15.h),
+                                hintStyle: const TextStyle(
+                                    color: Color(textStroke),
+                                    fontFamily: "Poppins"),
+                                focusColor: const Color(textStroke),
                               ),
-                              borderRadius: BorderRadius.circular(5.r),
                             ),
-                            prefixIcon: Padding(
-                              padding: EdgeInsets.only(left: 20.w, right: 10.w),
-                              child: Icon(
-                                size: 24.w,
-                                Icons.email_outlined,
-                                color: const Color(primaryColor),
-                              ),
-                            ),
-                            hintText: 'Enter your email',
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 15.h),
-                            hintStyle: const TextStyle(
-                                color: Color(textStroke),
-                                fontFamily: "Poppins"),
-                            focusColor: const Color(textStroke),
-                          ),
+                          ],
                         ),
+                        if (emailHasError)
+                            Align(alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Please enter your email',
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontFamily: "Poppins",
+                                  fontSize: 12.sp),
+                            ),)
+                            
                       ],
                     ),
                     Column(
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Otp(),
-                              ),
-                            );
+                            
+                            
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const Otp(),
+                                
+                            //   ),
+                            // );
+                            
+                            if (emailController.text.isEmpty) {
+                              
+                              setState(() {
+                                emailHasError = emailController.text.isEmpty;
+                              });
+                            } else {
+                              setState(() {
+                                emailHasError = false;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Otp(),
+                                  ),
+                                );
+                              });
+
+                            }
+
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(primaryColor),
