@@ -2,6 +2,7 @@ import 'package:app/pages/mpin.dart';
 import 'package:app/pages/signup.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
@@ -15,8 +16,8 @@ class Otp extends StatefulWidget {
 class _OtpState extends State<Otp> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    //double screenHeight = MediaQuery.of(context).size.height;
+    // double screenWidth = MediaQuery.of(context).size.width;
+    // double screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -28,8 +29,7 @@ class _OtpState extends State<Otp> {
           automaticallyImplyLeading: false,
           title: Text(
             'Sign Up',
-            style:
-                TextStyle(fontSize: screenWidth * 0.05, fontFamily: "Poppins"),
+            style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
           ),
           leading: IconButton(
               onPressed: () {
@@ -39,52 +39,50 @@ class _OtpState extends State<Otp> {
               icon: SvgPicture.asset("assets/Icons/arrow.svg")),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
                   Text(
-                    'Enter the 6-digit One-Time PIN (OTP)',
+                    'Enter the 6-digit One-Time PIN \n(OTP)',
                     style: TextStyle(
-                      fontSize: screenWidth * 0.06,
+                      fontSize: 16.sp,
                       color: const Color(textColor),
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 50.0,
+                  SizedBox(
+                    height: 50.h,
                   ),
                   VerificationCode(
                     length: 6,
-                    textStyle: TextStyle(fontSize: screenWidth * 0.06),
-                    underlineColor: const Color(0xFFA8A8A8),
+                    textStyle: TextStyle(fontSize: 24.sp),
+                    underlineColor: const Color(primaryColor),
                     keyboardType: TextInputType.number,
                     onCompleted: (value) {},
                     onEditing: (value) {},
                   ),
-                  const SizedBox(
-                    height: 30.0,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   Text(
-                    'We sent a 6-digit authentication code to your registered Email',
+                    'We sent a 6-digit authentication code to your \nregistered Email',
                     style: TextStyle(
-                        fontSize: screenWidth * 0.04,
-                        color: const Color(textSubtitle)),
+                        fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 40.0,
+                  SizedBox(
+                    height: 40.h,
                   ),
                   Text(
                     'Didn’t receive code?',
                     style: TextStyle(
-                        fontSize: screenWidth * 0.04,
-                        color: const Color(textSubtitle)),
+                        fontSize: 14.sp, color: const Color(textSubtitle)),
                   ),
-                  const SizedBox(
-                    height: 10.0,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -92,16 +90,16 @@ class _OtpState extends State<Otp> {
                       Text(
                         'Resend New Code',
                         style: TextStyle(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: 13.sp,
                           color: const Color(secondaryColor).withOpacity(0.8),
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                        padding: EdgeInsets.only(left: 5.w),
                         child: Text(
                           '2:00',
                           style: TextStyle(
-                              fontSize: 16.0,
+                              fontSize: 13.sp,
                               color:
                                   const Color(secondaryColor).withOpacity(0.8)),
                         ),
@@ -123,14 +121,14 @@ class _OtpState extends State<Otp> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(primaryColor),
-                      minimumSize: const Size(
-                          double.infinity, 48.0), // Set width and height
+                      minimumSize:
+                          Size(double.infinity, 48.h), // Set width and height
                     ),
                     child: Text(
                       'Verify',
                       style: TextStyle(
                         color: const Color(textLight),
-                        fontSize: screenWidth * 0.05,
+                        fontSize: 16.sp,
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.normal,
                       ),

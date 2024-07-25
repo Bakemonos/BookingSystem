@@ -1,6 +1,7 @@
 import 'package:app/pages/mpinconfirm.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
@@ -14,7 +15,7 @@ class Mpin extends StatefulWidget {
 class _MyWidgetState extends State<Mpin> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    // double screenWidth = MediaQuery.of(context).size.width;
     // double screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
@@ -27,8 +28,10 @@ class _MyWidgetState extends State<Mpin> {
           automaticallyImplyLeading: false,
           title: Text(
             'Sign Up',
-            style:
-                TextStyle(fontSize: screenWidth * 0.05, fontFamily: "Poppins"),
+            style: TextStyle(
+                fontSize: 20.sp,
+                fontFamily: "Poppins",
+                color: const Color(textColor)),
           ),
           leading: IconButton(
               onPressed: () {
@@ -40,7 +43,7 @@ class _MyWidgetState extends State<Mpin> {
               icon: SvgPicture.asset("assets/Icons/arrow.svg")),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -51,39 +54,37 @@ class _MyWidgetState extends State<Mpin> {
                     child: Text(
                       'Create your 4-digit MPIN',
                       style: TextStyle(
-                        fontSize: screenWidth * 0.06,
+                        fontSize: 16.sp,
                         color: const Color(textColor),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10.0,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Text(
                     'Remember your 4-digit MPIN, this will serve as your login  code to enter the app',
                     style: TextStyle(
-                        fontSize: screenWidth * 0.04,
-                        color: const Color(textSubtitle)),
+                        fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 30.0,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   VerificationCode(
-                    textStyle: TextStyle(fontSize: screenWidth * 0.06),
-                    underlineColor: const Color(textSubtitle),
+                    textStyle: TextStyle(fontSize: 24.sp),
+                    underlineColor: const Color(primaryColor),
                     keyboardType: TextInputType.number,
                     onCompleted: (value) {},
                     onEditing: (value) {},
                   ),
-                  const SizedBox(
-                    height: 20.0,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Text(
-                    'Please create a secure and memorable 4-digit MPIN for yourself.',
+                    'Please create a secure and memorable \n4-digit MPIN for yourself.',
                     style: TextStyle(
-                        fontSize: screenWidth * 0.04,
-                        color: const Color(textSubtitle)),
+                        fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
                   )
                 ],
@@ -101,14 +102,14 @@ class _MyWidgetState extends State<Mpin> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(primaryColor),
-                      minimumSize: const Size(
-                          double.infinity, 48.0), // Set width and height
+                      minimumSize:
+                          Size(double.infinity, 48.h), // Set width and height
                     ),
                     child: Text(
                       'Enter',
                       style: TextStyle(
                         color: const Color(textLight),
-                        fontSize: screenWidth * 0.05,
+                        fontSize: 16.sp,
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.normal,
                       ),

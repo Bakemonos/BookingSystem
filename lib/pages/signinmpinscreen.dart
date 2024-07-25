@@ -2,6 +2,7 @@ import 'package:app/pages/signin.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Signinmpinscreen extends StatefulWidget {
@@ -25,12 +26,14 @@ class _SigninState extends State<Signinmpinscreen> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 5, 8, 5),
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
         child: Text(
           textAlign: TextAlign.center,
           number.toString(),
-          style: const TextStyle(
-              fontSize: 24, color: Color(textColor), fontFamily: "Poppins"),
+          style: TextStyle(
+              fontSize: 24.sp,
+              color: const Color(textColor),
+              fontFamily: "Poppins"),
         ),
       ),
     );
@@ -38,7 +41,7 @@ class _SigninState extends State<Signinmpinscreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    // double screenWidth = MediaQuery.of(context).size.width;
     // double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -49,7 +52,7 @@ class _SigninState extends State<Signinmpinscreen> {
         automaticallyImplyLeading: false,
         title: Text(
           'Sign In',
-          style: TextStyle(fontSize: screenWidth * 0.05, fontFamily: "Poppins"),
+          style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
         ),
         leading: IconButton(
             onPressed: () {
@@ -59,14 +62,14 @@ class _SigninState extends State<Signinmpinscreen> {
             icon: SvgPicture.asset("assets/Icons/arrow.svg")),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               children: [
-                const SizedBox(
-                  height: 150.0,
+                SizedBox(
+                  height: 150.h,
                 ),
 
                 Column(
@@ -74,12 +77,12 @@ class _SigninState extends State<Signinmpinscreen> {
                     Text(
                       'Enter you MPIN',
                       style: TextStyle(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: 16.sp,
                           fontFamily: "Poppins",
                           color: const Color(textSubtitle)),
                     ),
-                    const SizedBox(
-                      height: 10.0,
+                    SizedBox(
+                      height: 10.h,
                     ),
 
                     // MPIN CODE HERE
@@ -93,7 +96,7 @@ class _SigninState extends State<Signinmpinscreen> {
                             width: isPinVisible ? 50 : 18,
                             height: isPinVisible ? 50 : 18,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(10.r),
                               color: index < enteredPin.length
                                   ? isPinVisible
                                       ? const Color(primaryColor)
@@ -105,7 +108,7 @@ class _SigninState extends State<Signinmpinscreen> {
                                     child: Text(
                                       enteredPin[index],
                                       style: TextStyle(
-                                          fontSize: screenWidth * 0.05,
+                                          fontSize: 16.sp,
                                           fontFamily: "Poppins",
                                           color: const Color(textLight)),
                                     ),
@@ -127,10 +130,10 @@ class _SigninState extends State<Signinmpinscreen> {
                     //         ? Icons.visibility_off
                     //         : Icons.visibility)),
 
-                    const SizedBox(
-                      width: 100,
-                      height: 20,
-                      child: Row(
+                    SizedBox(
+                      width: 100.w,
+                      height: 20.h,
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [],
@@ -151,128 +154,123 @@ class _SigninState extends State<Signinmpinscreen> {
                       barrierColor: Colors.transparent,
                       context: context,
                       builder: (context) => Container(
-                        height: 400,
+                        height: 400.h,
                         width: double.infinity,
-                        decoration: const BoxDecoration(
-                          color: Color(foregroundColor),
+                        decoration: BoxDecoration(
+                          color: const Color(foregroundColor),
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(50),
-                            topRight: Radius.circular(50),
+                            topLeft: Radius.circular(50.r),
+                            topRight: Radius.circular(50.r),
                           ),
                         ),
                         // (index) => numButton();
 
-                        child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 80, right: 80.0),
-                            child: Column(
+                        child: Column(
+                          children: [
+                            SizedBox(height: 30.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const SizedBox(height: 30.0),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    numButton(1),
-                                    const SizedBox(width: 30.0),
-                                    numButton(2),
-                                    const SizedBox(width: 30.0),
-                                    numButton(3),
-                                  ],
+                                numButton(1),
+                                SizedBox(width: 30.w),
+                                numButton(2),
+                                SizedBox(width: 30.w),
+                                numButton(3),
+                              ],
+                            ),
+                            SizedBox(height: 20.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                numButton(4),
+                                SizedBox(width: 30.w),
+                                numButton(5),
+                                SizedBox(width: 30.w),
+                                numButton(6),
+                              ],
+                            ),
+                            SizedBox(height: 20.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                numButton(7),
+                                SizedBox(width: 30.w),
+                                numButton(8),
+                                SizedBox(width: 30.w),
+                                numButton(9),
+                              ],
+                            ),
+                            SizedBox(height: 20.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                  onPressed: () =>
+                                      setState(() => enteredPin = ''),
+                                  child: Padding(
+                                    // W8 // 13H
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10.w, vertical: 14.h),
+                                    child: SvgPicture.asset(
+                                        "assets/Icons/XMpin.svg"),
+                                  ),
                                 ),
-                                const SizedBox(height: 20.0),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    numButton(4),
-                                    const SizedBox(width: 30.0),
-                                    numButton(5),
-                                    const SizedBox(width: 30.0),
-                                    numButton(6),
-                                  ],
-                                ),
-                                const SizedBox(height: 20.0),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    numButton(7),
-                                    const SizedBox(width: 30.0),
-                                    numButton(8),
-                                    const SizedBox(width: 30.0),
-                                    numButton(9),
-                                  ],
-                                ),
-                                const SizedBox(height: 20.0),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          setState(() => enteredPin = ''),
-                                      child: Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                          8,
-                                          13,
-                                          8,
-                                          13,
-                                        ),
-                                        child: SvgPicture.asset(
-                                            "assets/Icons/XMpin.svg"),
-                                      ),
+                                SizedBox(width: 30.w),
+                                numButton(0),
+                                SizedBox(width: 30.w),
+                                TextButton(
+                                  onPressed: () => setState(() => enteredPin =
+                                      enteredPin.isNotEmpty
+                                          ? enteredPin.substring(
+                                              0, enteredPin.length - 1)
+                                          : enteredPin),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 10.h, horizontal: 8.w),
+                                    child: SvgPicture.asset(
+                                      height: 24.h,
+                                      width: 24.w,
+                                      "assets/Icons/backspace.svg",
                                     ),
-                                    const SizedBox(width: 30.0),
-                                    numButton(0),
-                                    const SizedBox(width: 30.0),
-                                    TextButton(
-                                      onPressed: () => setState(() =>
-                                          enteredPin = enteredPin.isNotEmpty
-                                              ? enteredPin.substring(
-                                                  0, enteredPin.length - 1)
-                                              : enteredPin),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 10.0),
-                                        child: SvgPicture.asset(
-                                          height: 24.0,
-                                          width: 24.0,
-                                          "assets/Icons/backspace.svg",
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 30.0,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Help Center',
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: screenWidth * 0.03,
-                                          color: const Color(textSubtitle),
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      'Forgot MPIN?',
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: screenWidth * 0.03,
-                                          color: const Color(textSubtitle),
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
+                                  ),
                                 ),
                               ],
-                            )),
+                            ),
+                            SizedBox(
+                              height: 30.h,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  'Help Center',
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 11.sp,
+                                      color: const Color(textSubtitle),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  'Forgot MPIN?',
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 11.sp,
+                                      color: const Color(textSubtitle),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },
                   child: Container(
-                    padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 20.0),
+                    // H15 W20
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.r),
                       color: const Color(primaryColor),
                     ),
                     child: Column(
@@ -281,7 +279,7 @@ class _SigninState extends State<Signinmpinscreen> {
                         Text(
                           'MPIN Login',
                           style: TextStyle(
-                              fontSize: screenWidth * 0.03,
+                              fontSize: 11.sp,
                               fontFamily: "Poppins",
                               color: const Color(textLight),
                               fontWeight: FontWeight.w500),
@@ -290,8 +288,8 @@ class _SigninState extends State<Signinmpinscreen> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 50.0,
+                SizedBox(
+                  height: 50.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -300,7 +298,7 @@ class _SigninState extends State<Signinmpinscreen> {
                       'Help Center',
                       style: TextStyle(
                           fontFamily: "Poppins",
-                          fontSize: screenWidth * 0.03,
+                          fontSize: 11.sp,
                           color: const Color(textSubtitle),
                           fontWeight: FontWeight.bold),
                     ),
@@ -308,7 +306,7 @@ class _SigninState extends State<Signinmpinscreen> {
                       'Forgot MPIN?',
                       style: TextStyle(
                           fontFamily: "Poppins",
-                          fontSize: screenWidth * 0.03,
+                          fontSize: 11.sp,
                           color: const Color(textSubtitle),
                           fontWeight: FontWeight.bold),
                     ),

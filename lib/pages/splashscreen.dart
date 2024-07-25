@@ -1,6 +1,7 @@
 import 'package:app/pages/getstarted.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -29,7 +30,7 @@ class _SplashscreenState extends State<Splashscreen> {
         color: const Color(backgroundColor),
         child: Center(
           child: Image.asset(
-            width: 230,
+            width: 230.w,
             'assets/Pictures/praetorian.png',
             fit: BoxFit.contain,
           ),
