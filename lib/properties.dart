@@ -9,3 +9,4 @@ const primaryColor = 0xFF44D1FD;
 const secondaryColor = 0xFF609EF4;
 const backgroundColor = 0xFFDAEBFE;
 const foregroundColor = 0xFFF2FAFF;
+const redColor = 0xFFFF472E;
