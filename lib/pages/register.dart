@@ -244,25 +244,26 @@ class _RegisterState extends State<Register> {
                     ),
                     TextField(
                       decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 1,
-                            color: Color(textSubtitle),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1,
+                              color: Color(textSubtitle),
+                            ),
+                            borderRadius: BorderRadius.circular(5.r),
                           ),
-                          borderRadius: BorderRadius.circular(5.r),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 1,
-                            color: Color(primaryColor),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1,
+                              color: Color(primaryColor),
+                            ),
+                            borderRadius: BorderRadius.circular(5.r),
                           ),
-                          borderRadius: BorderRadius.circular(5.r),
-                        ),
-                        hintStyle: const TextStyle(
-                          color: Color(textStroke),
-                        ),
-                        hintText: 'Enter First Name',
-                      ),
+                          hintStyle: const TextStyle(
+                            color: Color(textStroke),
+                          ),
+                          hintText: 'Enter First Name',
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 15.h)),
                     ),
                     SizedBox(
                       height: 10.h,
@@ -296,7 +297,9 @@ class _RegisterState extends State<Register> {
                             ),
                             hintStyle:
                                 const TextStyle(color: Color(textStroke)),
-                            hintText: 'Enter Middle Initial')),
+                            hintText: 'Enter Middle Initial',
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 15.h))),
                     SizedBox(
                       height: 10.h,
                     ),
@@ -329,7 +332,9 @@ class _RegisterState extends State<Register> {
                             ),
                             hintStyle:
                                 const TextStyle(color: Color(textStroke)),
-                            hintText: 'Enter Last Name')),
+                            hintText: 'Enter Last Name',
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 15.h))),
                     SizedBox(
                       height: 10.h,
                     ),
@@ -347,9 +352,8 @@ class _RegisterState extends State<Register> {
                       height: 5.h,
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 10.w, right: 10.w),
                       alignment: Alignment.center,
-                      height: 55.h,
+                      height: 48.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -357,6 +361,7 @@ class _RegisterState extends State<Register> {
                           borderRadius: BorderRadius.circular(5.r)),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
                             iconSize: 24.w,
                             dropdownColor: const Color(foregroundColor),
                             borderRadius: BorderRadius.circular(8.r),
@@ -458,11 +463,16 @@ class _RegisterState extends State<Register> {
                             borderRadius: BorderRadius.circular(5.r),
                           ),
                           hintStyle: const TextStyle(color: Color(textStroke)),
-                          suffixIcon: SvgPicture.asset(
-                            "assets/Icons/calendar.svg",
-                            fit: BoxFit.scaleDown,
+                          suffixIcon: Padding(
+                            padding: EdgeInsets.only(right: 20.w),
+                            child: SvgPicture.asset(
+                              "assets/Icons/calendar.svg",
+                              fit: BoxFit.scaleDown,
+                            ),
                           ),
-                          hintText: 'Date of Birth'),
+                          hintText: 'Date of Birth',
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 15.h)),
                       readOnly: true,
                       onTap: () {
                         _selectDate();

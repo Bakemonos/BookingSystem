@@ -120,6 +120,8 @@ class _SignupState extends State<Signup> {
                               ),
                             ),
                             hintText: 'Enter your email',
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 15.h),
                             hintStyle: const TextStyle(
                                 color: Color(textStroke),
                                 fontFamily: "Poppins"),
