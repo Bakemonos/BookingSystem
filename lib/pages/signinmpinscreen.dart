@@ -56,7 +56,8 @@ class _SigninState extends State<Signinmpinscreen> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Signin()));
             },
-            icon: SvgPicture.asset("assets/Icons/arrow.svg")),
+            icon: SvgPicture.asset(
+                width: 24.w, height: 24.h, "assets/Icons/arrow.svg")),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
@@ -217,7 +218,9 @@ class _SigninState extends State<Signinmpinscreen> {
                                       )),
                                 ),
                                 SizedBox(width: 30.w),
-                                numButton(0),
+                                numButton(
+                                  0,
+                                ),
                                 SizedBox(width: 30.w),
                                 TextButton(
                                   onPressed: () => setState(() => enteredPin =
@@ -268,23 +271,28 @@ class _SigninState extends State<Signinmpinscreen> {
                     );
                   },
                   child: Container(
-                    // H15 W20
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
+                    height: 80.h,
+                    width: 80.w,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.r),
                       color: const Color(primaryColor),
                     ),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 13.w, vertical: 10.h),
                     child: Column(
                       children: [
-                        SvgPicture.asset("assets/Icons/MpinIcon.svg"),
+                        SvgPicture.asset(
+                            width: 40.h,
+                            height: 40.h,
+                            "assets/Icons/MpinIcon.svg"),
                         Text(
                           'MPIN Login',
                           style: TextStyle(
-                              fontSize: 12.sp,
+                              fontSize: 9.sp,
                               fontFamily: "Poppins",
                               color: const Color(textLight),
                               fontWeight: FontWeight.w500),
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),

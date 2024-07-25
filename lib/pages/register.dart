@@ -102,9 +102,6 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                   )),
-                  SizedBox(
-                    height: 10.h,
-                  ),
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -161,9 +158,6 @@ class _RegisterState extends State<Register> {
                         )
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
                   ),
                 ],
               )),
