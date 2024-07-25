@@ -180,275 +180,106 @@ class _RegisterState extends State<Register> {
       backgroundColor: const Color(backgroundColor),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                SizedBox(height: 30.h),
-                Text(
-                  'Personal Information ',
-                  style: TextStyle(
-                      fontSize: 20.sp,
-                      color: const Color(textColor),
-                      fontFamily: "Poppins"),
-                ),
-                Text(
-                  'Please complete all fields',
-                  style: TextStyle(
-                      fontSize: 12.sp,
-                      fontFamily: "Poppins",
-                      color: const Color(textSubtitle)),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'UID:',
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 30.h),
+              Text(
+                'Personal Information ',
+                style: TextStyle(
+                    fontSize: 20.sp,
+                    color: const Color(textColor),
+                    fontFamily: "Poppins"),
+              ),
+              Text(
+                'Please complete all fields',
+                style: TextStyle(
+                    fontSize: 12.sp,
+                    fontFamily: "Poppins",
+                    color: const Color(textSubtitle)),
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Row(
+                children: [
+                  Text(
+                    'UID:',
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontFamily: "Poppins",
+                        color: const Color(textColor)),
+                  ),
+                  SizedBox(
+                    width: 10.h,
+                  ),
+                  Text(
+                    'X9Z7Y8',
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontFamily: "Poppins",
+                        color: const Color(textSubtitle)),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Column(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'First Name',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          fontFamily: "Poppins",
-                          color: const Color(textColor)),
+                          color: const Color(textColor),
+                          fontFamily: "Poppins"),
                     ),
-                    SizedBox(
-                      width: 10.h,
-                    ),
-                    Text(
-                      'X9Z7Y8',
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 1,
+                            color: Color(textSubtitle),
+                          ),
+                          borderRadius: BorderRadius.circular(5.r),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 1,
+                            color: Color(primaryColor),
+                          ),
+                          borderRadius: BorderRadius.circular(5.r),
+                        ),
+                        hintStyle: const TextStyle(
+                          color: Color(textStroke),
+                        ),
+                        hintText: 'Enter First Name',
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 15.h)),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Middle Initial',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          fontFamily: "Poppins",
-                          color: const Color(textSubtitle)),
+                          color: const Color(textColor),
+                          fontFamily: "Poppins"),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'First Name',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            color: const Color(textColor),
-                            fontFamily: "Poppins"),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Color(textSubtitle),
-                            ),
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Color(primaryColor),
-                            ),
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                          hintStyle: const TextStyle(
-                            color: Color(textStroke),
-                          ),
-                          hintText: 'Enter First Name',
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 20.w, vertical: 15.h)),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Middle Initial',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            color: const Color(textColor),
-                            fontFamily: "Poppins"),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    TextField(
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  width: 1, color: Color(textSubtitle)),
-                              borderRadius: BorderRadius.circular(5.r),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1,
-                                color: Color(primaryColor),
-                              ),
-                              borderRadius: BorderRadius.circular(5.r),
-                            ),
-                            hintStyle:
-                                const TextStyle(color: Color(textStroke)),
-                            hintText: 'Enter Middle Initial',
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 15.h))),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Last Name',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            color: const Color(textColor),
-                            fontFamily: "Poppins"),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    TextField(
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  width: 1, color: Color(textSubtitle)),
-                              borderRadius: BorderRadius.circular(5.r),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1,
-                                color: Color(primaryColor),
-                              ),
-                              borderRadius: BorderRadius.circular(5.r),
-                            ),
-                            hintStyle:
-                                const TextStyle(color: Color(textStroke)),
-                            hintText: 'Enter Last Name',
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 15.h))),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Gender',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            color: const Color(textColor),
-                            fontFamily: "Poppins"),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 48.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 1, color: const Color(textSubtitle)),
-                          borderRadius: BorderRadius.circular(5.r)),
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton<String>(
-                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            iconSize: 24.w,
-                            dropdownColor: const Color(foregroundColor),
-                            borderRadius: BorderRadius.circular(8.r),
-                            value: valueChoose,
-                            items: [
-                              DropdownMenuItem(
-                                value: 'Select',
-                                child: Text(
-                                  'Select',
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: "Poppins",
-                                      color: const Color(textStroke)),
-                                ),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Male',
-                                child: Text(
-                                  'Male',
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: "Poppins",
-                                      color: const Color(textStroke)),
-                                ),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Female',
-                                child: Text(
-                                  'Female',
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: "Poppins",
-                                      color: const Color(textStroke)),
-                                ),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Non-binary',
-                                child: Text(
-                                  'Non-binary',
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: "Poppins",
-                                      color: const Color(textStroke)),
-                                ),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Other',
-                                child: Text(
-                                  'Other',
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontFamily: "Poppins",
-                                      color: const Color(textStroke)),
-                                ),
-                              ),
-                            ],
-                            icon: const Icon(
-                              Icons.arrow_drop_down,
-                              color: Color(textColor),
-                            ),
-                            isExpanded: true,
-                            style: const TextStyle(color: Color(textColor)),
-                            onChanged: (newValue) {
-                              setState(() {
-                                valueChoose = newValue!;
-                              });
-                            }),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Date of Birth',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            color: const Color(textColor),
-                            fontFamily: "Poppins"),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    TextField(
-                      controller: _dateController,
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  TextField(
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
@@ -463,126 +294,289 @@ class _RegisterState extends State<Register> {
                             borderRadius: BorderRadius.circular(5.r),
                           ),
                           hintStyle: const TextStyle(color: Color(textStroke)),
-                          suffixIcon: Padding(
-                            padding: EdgeInsets.only(right: 20.w),
-                            child: SvgPicture.asset(
-                              "assets/Icons/calendar.svg",
-                              fit: BoxFit.scaleDown,
-                            ),
-                          ),
-                          hintText: 'Date of Birth',
+                          hintText: 'Enter Middle Initial',
                           contentPadding: EdgeInsets.symmetric(
-                              horizontal: 20.w, vertical: 15.h)),
-                      readOnly: true,
-                      onTap: () {
-                        _selectDate();
-                      },
+                              horizontal: 20.w, vertical: 15.h))),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Last Name',
+                      style: TextStyle(
+                          fontSize: 14.sp,
+                          color: const Color(textColor),
+                          fontFamily: "Poppins"),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 24.w,
-                      height: 24.h,
-                      child: Checkbox(
-                          activeColor: const Color(primaryColor),
-                          value: isChecked,
-                          onChanged: (value) {
-                            if (value == true) {
-                              setState(() {
-                                dialogpopup();
-                              });
-                            } else {
-                              setState(() {
-                                isChecked = false;
-                              });
-                            }
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  TextField(
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                width: 1, color: Color(textSubtitle)),
+                            borderRadius: BorderRadius.circular(5.r),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              width: 1,
+                              color: Color(primaryColor),
+                            ),
+                            borderRadius: BorderRadius.circular(5.r),
+                          ),
+                          hintStyle: const TextStyle(color: Color(textStroke)),
+                          hintText: 'Enter Last Name',
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 15.h))),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Gender',
+                      style: TextStyle(
+                          fontSize: 14.sp,
+                          color: const Color(textColor),
+                          fontFamily: "Poppins"),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 48.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 1, color: const Color(textSubtitle)),
+                        borderRadius: BorderRadius.circular(5.r)),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          iconSize: 24.w,
+                          dropdownColor: const Color(foregroundColor),
+                          borderRadius: BorderRadius.circular(8.r),
+                          value: valueChoose,
+                          items: [
+                            DropdownMenuItem(
+                              value: 'Select',
+                              child: Text(
+                                'Select',
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: "Poppins",
+                                    color: const Color(textStroke)),
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Male',
+                              child: Text(
+                                'Male',
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: "Poppins",
+                                    color: const Color(textStroke)),
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Female',
+                              child: Text(
+                                'Female',
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: "Poppins",
+                                    color: const Color(textStroke)),
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Non-binary',
+                              child: Text(
+                                'Non-binary',
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: "Poppins",
+                                    color: const Color(textStroke)),
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Other',
+                              child: Text(
+                                'Other',
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: "Poppins",
+                                    color: const Color(textStroke)),
+                              ),
+                            ),
+                          ],
+                          icon: const Icon(
+                            Icons.arrow_drop_down,
+                            color: Color(textColor),
+                          ),
+                          isExpanded: true,
+                          style: const TextStyle(color: Color(textColor)),
+                          onChanged: (newValue) {
+                            setState(() {
+                              valueChoose = newValue!;
+                            });
                           }),
                     ),
-                    SizedBox(width: 5.w),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isChecked = false;
-                          dialogpopup();
-                        });
-                      },
-                      child: Text(
-                        'I have agreed to the privacy and policy',
-                        style: TextStyle(
-                          fontFamily: "Poppins",
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Date of Birth',
+                      style: TextStyle(
+                          fontSize: 14.sp,
                           color: const Color(textColor),
-                          fontSize: 13.sp,
+                          fontFamily: "Poppins"),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  TextField(
+                    controller: _dateController,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              width: 1, color: Color(textSubtitle)),
+                          borderRadius: BorderRadius.circular(5.r),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 1,
+                            color: Color(primaryColor),
+                          ),
+                          borderRadius: BorderRadius.circular(5.r),
+                        ),
+                        hintStyle: const TextStyle(color: Color(textStroke)),
+                        suffixIcon: Padding(
+                          padding: EdgeInsets.only(right: 20.w),
+                          child: SvgPicture.asset(
+                            "assets/Icons/calendar.svg",
+                            fit: BoxFit.scaleDown,
+                          ),
+                        ),
+                        hintText: 'Date of Birth',
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 15.h)),
+                    readOnly: true,
+                    onTap: () {
+                      _selectDate();
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 24.w,
+                    height: 24.h,
+                    child: Checkbox(
+                        activeColor: const Color(primaryColor),
+                        value: isChecked,
+                        onChanged: (value) {
+                          if (value == true) {
+                            setState(() {
+                              dialogpopup();
+                            });
+                          } else {
+                            setState(() {
+                              isChecked = false;
+                            });
+                          }
+                        }),
+                  ),
+                  SizedBox(width: 5.w),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isChecked = false;
+                        dialogpopup();
+                      });
+                    },
+                    child: Text(
+                      'I have agreed to the privacy and policy',
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        color: const Color(textColor),
+                        fontSize: 13.sp,
                       ),
-                    )
-                  ],
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Getstarted(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(primaryColor),
+                  minimumSize:
+                      Size(double.infinity, 48.h), // Set width and height
                 ),
-              ],
-            ),
-            Column(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Getstarted(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(primaryColor),
-                    minimumSize:
-                        Size(double.infinity, 48.h), // Set width and height
-                  ),
-                  child: Text(
-                    'Confirm',
-                    style: TextStyle(
-                      color: const Color(textLight),
-                      fontSize: 16.sp,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10.h),
-                OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Getstarted(),
-                      ),
-                    );
-                  },
-                  style: OutlinedButton.styleFrom(
-                    minimumSize:
-                        Size(double.infinity, 48.h), // Set width and height
-                    side: const BorderSide(
-                      color:
-                          Color(primaryColor), // Set your desired outline color
-                      width: 1, // Adjust outline width (optional)
-                    ),
-                  ),
-                  child: Text(
-                    'Cancel',
-                    style: TextStyle(
-                      color: const Color(primaryColor),
-                      fontSize: 16.sp,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.normal,
-                    ),
+                child: Text(
+                  'Confirm',
+                  style: TextStyle(
+                    color: const Color(textLight),
+                    fontSize: 16.sp,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
-              ],
-            ),
-          ],
+              ),
+              SizedBox(height: 10.h),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Getstarted(),
+                    ),
+                  );
+                },
+                style: OutlinedButton.styleFrom(
+                  minimumSize:
+                      Size(double.infinity, 48.h), // Set width and height
+                  side: const BorderSide(
+                    color:
+                        Color(primaryColor), // Set your desired outline color
+                    width: 1, // Adjust outline width (optional)
+                  ),
+                ),
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(
+                    color: const Color(primaryColor),
+                    fontSize: 16.sp,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

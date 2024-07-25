@@ -25,16 +25,13 @@ class _SigninState extends State<Signinmpinscreen> {
           }
         });
       },
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
-        child: Text(
-          textAlign: TextAlign.center,
-          number.toString(),
-          style: TextStyle(
-              fontSize: 24.sp,
-              color: const Color(textColor),
-              fontFamily: "Poppins"),
-        ),
+      child: Text(
+        textAlign: TextAlign.center,
+        number.toString(),
+        style: TextStyle(
+            fontSize: 24.sp,
+            color: const Color(textColor),
+            fontFamily: "Poppins"),
       ),
     );
   }
@@ -237,7 +234,7 @@ class _SigninState extends State<Signinmpinscreen> {
                               ],
                             ),
                             SizedBox(
-                              height: 30.h,
+                              height: 20.h,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,

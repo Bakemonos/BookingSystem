@@ -21,6 +21,7 @@ class _MyWidgetState extends State<Mpin> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(backgroundColor),
         appBar: AppBar(
           backgroundColor: const Color(foregroundColor),

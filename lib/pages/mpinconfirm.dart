@@ -20,6 +20,7 @@ class _MpinconfirmState extends State<Mpinconfirm> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(backgroundColor),
         appBar: AppBar(
           backgroundColor: const Color(foregroundColor),
