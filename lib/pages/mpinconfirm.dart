@@ -1,6 +1,7 @@
 import 'package:app/pages/register.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
@@ -13,11 +14,12 @@ class Mpinconfirm extends StatefulWidget {
  class _MpinconfirmState extends State<Mpinconfirm> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    // double screenWidth = MediaQuery.of(context).size.width;
     // double screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(backgroundColor),
         appBar: AppBar(
           backgroundColor: const Color(foregroundColor),
@@ -25,18 +27,17 @@ class Mpinconfirm extends StatefulWidget {
           automaticallyImplyLeading: false,
           title: Text(
             'Sign Up',
-            style:
-                TextStyle(fontSize: screenWidth * 0.05, fontFamily: "Poppins"),
+            style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
           ),
           leading: IconButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Register()));
               },
-              icon: SvgPicture.asset("assets/arrow.svg")),
+              icon: SvgPicture.asset("assets/Icons/arrow.svg")),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -47,39 +48,37 @@ class Mpinconfirm extends StatefulWidget {
                     child: Text(
                       'Confirm your 4 digit MPIN',
                       style: TextStyle(
-                        fontSize: screenWidth * 0.06,
+                        fontSize: 16.sp,
                         color: const Color(textColor),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10.0,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Text(
-                    'Remember your 4-digit MPIN, this will serve as your login  code to enter the app',
+                    'Remember your 4-digit MPIN, this will serve as your login code to enter the app',
                     style: TextStyle(
-                        fontSize: screenWidth * 0.04,
-                        color: const Color(textSubtitle)),
+                        fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 30.0,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   VerificationCode(
-                    textStyle: TextStyle(fontSize: screenWidth * 0.06),
-                    underlineColor: const Color(textSubtitle),
+                    textStyle: TextStyle(fontSize: 24.sp),
+                    underlineColor: const Color(primaryColor),
                     keyboardType: TextInputType.number,
                     onCompleted: (value) {},
                     onEditing: (value) {},
                   ),
-                  const SizedBox(
-                    height: 20.0,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Text(
                     'Type the 4-digits MPIN that you created for confirmation',
                     style: TextStyle(
-                        fontSize: screenWidth * 0.04,
-                        color: const Color(textSubtitle)),
+                        fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
                   )
                 ],
@@ -97,14 +96,14 @@ class Mpinconfirm extends StatefulWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(primaryColor),
-                      minimumSize: const Size(
-                          double.infinity, 48.0), // Set width and height
+                      minimumSize:
+                          Size(double.infinity, 48.h), // Set width and height
                     ),
                     child: Text(
                       'Confirm',
                       style: TextStyle(
                         color: const Color(textLight),
-                        fontSize: screenWidth * 0.05,
+                        fontSize: 16.sp,
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.normal,
                       ),
