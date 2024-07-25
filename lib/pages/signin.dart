@@ -113,9 +113,10 @@ class _SigninState extends State<Signin> {
                             ),
                             prefixIcon: Padding(
                               padding: EdgeInsets.only(left: 20.w, right: 10.w),
-                              child: const Icon(
+                              child: Icon(
+                                size: 24.w,
                                 Icons.email_outlined,
-                                color: Color(primaryColor),
+                                color: const Color(primaryColor),
                               ),
                             ),
                             hintText: 'Enter your email',

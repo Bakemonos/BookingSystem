@@ -357,6 +357,7 @@ class _RegisterState extends State<Register> {
                           borderRadius: BorderRadius.circular(5.r)),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
+                            iconSize: 24.w,
                             dropdownColor: const Color(foregroundColor),
                             borderRadius: BorderRadius.circular(8.r),
                             value: valueChoose,
@@ -457,7 +458,10 @@ class _RegisterState extends State<Register> {
                             borderRadius: BorderRadius.circular(5.r),
                           ),
                           hintStyle: const TextStyle(color: Color(textStroke)),
-                          suffixIcon: const Icon(Icons.calendar_month_outlined),
+                          suffixIcon: SvgPicture.asset(
+                            "assets/Icons/calendar.svg",
+                            fit: BoxFit.scaleDown,
+                          ),
                           hintText: 'Date of Birth'),
                       readOnly: true,
                       onTap: () {
