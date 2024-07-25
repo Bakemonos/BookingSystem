@@ -41,7 +41,7 @@ class _MyWidgetState extends State<Mpin> {
                     MaterialPageRoute(
                         builder: (context) => const Mpinconfirm()));
               },
-              icon: SvgPicture.asset("assets/Icons/arrow.svg")),
+              icon: SvgPicture.asset(width: 24.w, height: 24.h,"assets/Icons/arrow.svg")),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),

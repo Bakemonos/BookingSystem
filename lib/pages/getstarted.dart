@@ -22,19 +22,19 @@ class _GetstartedState extends State<Getstarted> {
       body: Stack(
         children: [
           Image.asset(
-            width: double.infinity,
+            width: double.infinity.w,
             'assets/Pictures/AppBackground.png',
             fit: BoxFit.contain,
           ),
           SizedBox(
-            width: screenWidth,
-            height: screenHeight,
+            width: screenWidth.w,
+            height: screenHeight.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   height: 430.h,
-                  width: screenWidth,
+                  width: screenWidth.w,
                   decoration: BoxDecoration(
                     color: const Color(foregroundColor),
                     borderRadius: BorderRadius.only(
