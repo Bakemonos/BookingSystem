@@ -3,6 +3,7 @@ import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:quickalert/quickalert.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -524,11 +525,28 @@ class _RegisterState extends State<Register> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Getstarted(),
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.success,
+                    title: 'Registered',
+                    text: 'Registered successfully',
+                    textColor: const Color(textSubtitle),
+                    titleColor: const Color(textColor),
+                    confirmBtnColor: const Color(primaryColor),
+                    barrierDismissible: false,
+                    confirmBtnText: 'Back to sign In',
+                    confirmBtnTextStyle: TextStyle(
+                      fontSize: 14.sp,
+                      color: const Color(textLight),
                     ),
+                    onConfirmBtnTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Getstarted(),
+                        ),
+                      );
+                    },
                   );
                 },
                 style: ElevatedButton.styleFrom(

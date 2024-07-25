@@ -13,7 +13,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ScreenUtilInit(
       designSize: Size(360, 800),
-      minTextAdapt: true, 
+      minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
         home: Splashscreen(),

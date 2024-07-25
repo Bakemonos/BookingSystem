@@ -66,7 +66,7 @@ class _SigninState extends State<Signinmpinscreen> {
             Column(
               children: [
                 SizedBox(
-                  height: 150.h,
+                  height: 120.h,
                 ),
 
                 Column(
@@ -164,7 +164,7 @@ class _SigninState extends State<Signinmpinscreen> {
 
                         child: Column(
                           children: [
-                            SizedBox(height: 30.h),
+                            SizedBox(height: 40.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -201,16 +201,20 @@ class _SigninState extends State<Signinmpinscreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                SizedBox(width: 30.w),
                                 TextButton(
                                   onPressed: () =>
                                       setState(() => enteredPin = ''),
                                   child: Padding(
-                                    // W8 // 13H
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 10.w, vertical: 14.h),
-                                    child: SvgPicture.asset(
-                                        "assets/Icons/XMpin.svg"),
-                                  ),
+                                      // W8 // 13H
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 10.h),
+                                      child: Text(
+                                        'Reset',
+                                        style: TextStyle(
+                                            fontSize: 13.sp,
+                                            color: const Color(textColor)),
+                                      )),
                                 ),
                                 SizedBox(width: 30.w),
                                 numButton(0),
@@ -222,8 +226,8 @@ class _SigninState extends State<Signinmpinscreen> {
                                               0, enteredPin.length - 1)
                                           : enteredPin),
                                   child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 10.h, horizontal: 8.w),
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 8.h),
                                     child: SvgPicture.asset(
                                       height: 24.h,
                                       width: 24.w,
@@ -231,10 +235,11 @@ class _SigninState extends State<Signinmpinscreen> {
                                     ),
                                   ),
                                 ),
+                                SizedBox(width: 30.w),
                               ],
                             ),
                             SizedBox(
-                              height: 20.h,
+                              height: 30.h,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -243,17 +248,17 @@ class _SigninState extends State<Signinmpinscreen> {
                                   'Help Center',
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      fontSize: 11.sp,
+                                      fontSize: 12.sp,
                                       color: const Color(textSubtitle),
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 Text(
                                   'Forgot MPIN?',
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      fontSize: 11.sp,
+                                      fontSize: 12.sp,
                                       color: const Color(textSubtitle),
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ],
                             ),
@@ -276,7 +281,7 @@ class _SigninState extends State<Signinmpinscreen> {
                         Text(
                           'MPIN Login',
                           style: TextStyle(
-                              fontSize: 11.sp,
+                              fontSize: 12.sp,
                               fontFamily: "Poppins",
                               color: const Color(textLight),
                               fontWeight: FontWeight.w500),
@@ -295,17 +300,17 @@ class _SigninState extends State<Signinmpinscreen> {
                       'Help Center',
                       style: TextStyle(
                           fontFamily: "Poppins",
-                          fontSize: 11.sp,
+                          fontSize: 12.sp,
                           color: const Color(textSubtitle),
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w500),
                     ),
                     Text(
                       'Forgot MPIN?',
                       style: TextStyle(
                           fontFamily: "Poppins",
-                          fontSize: 11.sp,
+                          fontSize: 12.sp,
                           color: const Color(textSubtitle),
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w500),
                     ),
                   ],
                 ),
