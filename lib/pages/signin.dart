@@ -88,7 +88,7 @@ class _SigninState extends State<Signin> {
                         Container(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'Email',
+                           'Email',
                             style: TextStyle(
                                 fontSize: 14.sp,
                                 color: const Color(textColor),

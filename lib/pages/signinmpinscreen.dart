@@ -18,6 +18,7 @@ class _SigninState extends State<Signinmpinscreen> {
 
   Widget numButton(int number) {
     return TextButton(
+      style: const ButtonStyle(alignment: Alignment.center),
       onPressed: () {
         setState(() {
           if (enteredPin.length < 4) {
@@ -128,15 +129,15 @@ class _SigninState extends State<Signinmpinscreen> {
                     //         ? Icons.visibility_off
                     //         : Icons.visibility)),
 
-                    SizedBox(
-                      width: 100.w,
-                      height: 20.h,
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [],
-                      ),
-                    ),
+                    // SizedBox(
+                    //   width: 100.w,
+                    //   height: 20.h,
+                    //   child: const Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     crossAxisAlignment: CrossAxisAlignment.center,
+                    //     children: [],
+                    //   ),
+                    // ),
                   ],
                 ),
                 // SPACE BETWEEN
@@ -163,122 +164,124 @@ class _SigninState extends State<Signinmpinscreen> {
                         ),
                         // (index) => numButton();
 
-                        child: Column(
-                          children: [
-                            SizedBox(height: 40.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                numButton(1),
-                                SizedBox(width: 30.w),
-                                numButton(2),
-                                SizedBox(width: 30.w),
-                                numButton(3),
-                              ],
-                            ),
-                            SizedBox(height: 20.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                numButton(4),
-                                SizedBox(width: 30.w),
-                                numButton(5),
-                                SizedBox(width: 30.w),
-                                numButton(6),
-                              ],
-                            ),
-                            SizedBox(height: 20.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                numButton(7),
-                                SizedBox(width: 30.w),
-                                numButton(8),
-                                SizedBox(width: 30.w),
-                                numButton(9),
-                              ],
-                            ),
-                            SizedBox(height: 20.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(width: 30.w),
-                                TextButton(
-                                  onPressed: () =>
-                                      setState(() => enteredPin = ''),
-                                  child: Padding(
-                                      // W8 // 13H
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 10.h),
-                                      child: Text(
-                                        'Reset',
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            color: const Color(textColor)),
-                                      )),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20.h),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    numButton(1),
+                                    numButton(2),
+                                    numButton(3),
+                                  ],
                                 ),
-                                SizedBox(width: 30.w),
-                                numButton(
-                                  0,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    numButton(4),
+                                    numButton(5),
+                                    numButton(6),
+                                  ],
                                 ),
-                                SizedBox(width: 30.w),
-                                TextButton(
-                                  onPressed: () => setState(() => enteredPin =
-                                      enteredPin.isNotEmpty
-                                          ? enteredPin.substring(
-                                              0, enteredPin.length - 1)
-                                          : enteredPin),
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 8.h),
-                                    child: SvgPicture.asset(
-                                      height: 24.h,
-                                      width: 24.w,
-                                      "assets/Icons/backspace.svg",
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    numButton(7),
+                                    numButton(8),
+                                    numButton(9),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.h),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          setState(() => enteredPin = ''),
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 10.h),
+                                        child: Text(
+                                          'Reset',
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              color: const Color(textColor)),
+                                        ),
+                                      ),
                                     ),
+                                    numButton(0),
+                                    TextButton(
+                                      onPressed: () => setState(() =>
+                                          enteredPin = enteredPin.isNotEmpty
+                                              ? enteredPin.substring(
+                                                  0, enteredPin.length - 1)
+                                              : enteredPin),
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 10.h),
+                                        child: SvgPicture.asset(
+                                          height: 24.h,
+                                          width: 24.w,
+                                          "assets/Icons/backspace.svg",
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    'Help Center',
+                                    style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: 12.sp,
+                                        color: const Color(textSubtitle),
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                ),
-                                SizedBox(width: 30.w),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 30.h,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  'Help Center',
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12.sp,
-                                      color: const Color(textSubtitle),
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  'Forgot MPIN?',
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12.sp,
-                                      color: const Color(textSubtitle),
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  Text(
+                                    'Forgot MPIN?',
+                                    style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: 12.sp,
+                                        color: const Color(textSubtitle),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
                   },
                   child: Container(
-                    height: 80.h,
-                    width: 80.w,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.r),
                       color: const Color(primaryColor),
                     ),
                     padding:
-                        EdgeInsets.symmetric(horizontal: 13.w, vertical: 10.h),
+                        EdgeInsets.symmetric(horizontal: 13.w, vertical: 15.h),
                     child: Column(
                       children: [
                         SvgPicture.asset(

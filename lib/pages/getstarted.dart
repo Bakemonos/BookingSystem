@@ -146,7 +146,7 @@ class _GetstartedState extends State<Getstarted> {
                               fontWeight: FontWeight.normal,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
