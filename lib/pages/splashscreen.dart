@@ -1,4 +1,4 @@
-import 'package:app/pages/getstarted.dart';
+import 'package:app/other/onboarding_view.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,8 +19,8 @@ class _SplashscreenState extends State<Splashscreen> {
 
   _navigatetohome() async {
     await Future.delayed(const Duration(milliseconds: 2000), () {});
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Getstarted()));
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => const OnboardingView()));
   }
 
   @override
