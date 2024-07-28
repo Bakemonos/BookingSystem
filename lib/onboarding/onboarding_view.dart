@@ -1,6 +1,7 @@
 import 'package:app/onboarding/onboarding_items.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -56,7 +57,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                 count: controller.items.length,
                 effect: WormEffect(
                     dotHeight: 8.h,
-                    dotWidth: 18.w,
+                    dotWidth: 20.w,
                     spacing: 10.w,
                     type: WormType.thin,
                     dotColor: const Color(dotDefault),
@@ -123,9 +124,9 @@ class _OnboardingViewState extends State<OnboardingView> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Image.asset(
+                        width: screenWidth,
                         controller.items[index].image,
                         fit: BoxFit.contain,
-                        width: screenWidth,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
@@ -133,15 +134,19 @@ class _OnboardingViewState extends State<OnboardingView> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              controller.items[index].tittle,
+                            AutoSizeText(
+                              softWrap: true,
+                              maxLines: 2,
+                              controller.items[index].title,
                               style: TextStyle(
                                   fontFamily: "Poppins",
                                   fontSize: 20.sp,
                                   color: const Color(textColor),
-                                  fontWeight: FontWeight.w400),
+                                  fontWeight: FontWeight.w500),
                             ),
-                            Text(
+                            AutoSizeText(
+                              softWrap: true,
+                              maxLines: 2,
                               controller.items[index].description,
                               style: TextStyle(
                                   fontFamily: "Poppins",

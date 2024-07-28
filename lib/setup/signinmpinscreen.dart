@@ -138,16 +138,6 @@ class _SigninState extends State<Signinmpinscreen> {
                     //     icon: Icon(isPinVisible
                     //         ? Icons.visibility_off
                     //         : Icons.visibility)),
-
-                    // SizedBox(
-                    //   width: 100.w,
-                    //   height: 20.h,
-                    //   child: const Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: [],
-                    //   ),
-                    // ),
                   ],
                 ),
                 // SPACE BETWEEN

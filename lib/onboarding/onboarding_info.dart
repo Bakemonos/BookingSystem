@@ -1,6 +1,6 @@
 class OnboardingInfo {
-  final String tittle, description, image;
+  final String title, description, image;
 
   OnboardingInfo(
-      {required this.tittle, required this.description, required this.image});
- }
+      {required this.title, required this.description, required this.image});
+}
