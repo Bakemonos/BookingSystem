@@ -1,4 +1,4 @@
-import 'package:app/pages/getstarted.dart';
+import 'package:app/setup/getstarted.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

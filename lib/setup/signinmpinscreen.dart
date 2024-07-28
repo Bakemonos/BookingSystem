@@ -1,5 +1,6 @@
-import 'package:app/pages/signin.dart';
+import 'package:app/pages/navigation_menu.dart';
 import 'package:app/properties.dart';
+import 'package:app/setup/signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +17,12 @@ class _SigninState extends State<Signinmpinscreen> {
   String enteredPin = '';
   bool isPinVisible = false;
 
+  void navigationBottomMenu() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const NavigationMenu()));
+  }
+
+  // MPIN VALIDATION
   Widget numButton(int number) {
     return TextButton(
       style: const ButtonStyle(alignment: Alignment.center),
@@ -23,6 +30,9 @@ class _SigninState extends State<Signinmpinscreen> {
         setState(() {
           if (enteredPin.length < 4) {
             enteredPin += number.toString();
+            if (enteredPin.length == 4) {
+              navigationBottomMenu();
+            }
           }
         });
       },

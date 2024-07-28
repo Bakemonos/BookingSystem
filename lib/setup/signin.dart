@@ -1,26 +1,23 @@
-import 'package:app/pages/getstarted.dart';
-import 'package:app/pages/otp.dart';
-import 'package:app/pages/signin.dart';
+import 'package:app/setup/getstarted.dart';
+import 'package:app/setup/signinmpinscreen.dart';
+import 'package:app/setup/signup.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class Signin extends StatefulWidget {
+  const Signin({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<Signin> createState() => _SigninState();
 }
 
-final TextEditingController emailController = TextEditingController();
-bool emailHasError = false;
-
-class _SignupState extends State<Signup> {
+class _SigninState extends State<Signin> {
   @override
   Widget build(BuildContext context) {
     // double screenWidth = MediaQuery.of(context).size.width;
-    // double screenHeight = MediaQuery.of(context).size.height;
+    //double screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -32,7 +29,7 @@ class _SignupState extends State<Signup> {
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: Text(
-            'Sign Up',
+            'Sign In',
             style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
           ),
           leading: IconButton(
@@ -69,7 +66,7 @@ class _SignupState extends State<Signup> {
                           height: 30.h,
                         ),
                         Text(
-                          'Get Started',
+                          'Welcome back',
                           style: TextStyle(
                               color: const Color(textColor),
                               fontFamily: "Poppins",
@@ -79,7 +76,7 @@ class _SignupState extends State<Signup> {
                           height: 5.h,
                         ),
                         Text(
-                          'Sign Up to Unlock Appointment Power',
+                          'Please log in to your account',
                           style: TextStyle(
                               color: const Color(textSubtitle),
                               fontFamily: "Poppins",
@@ -91,7 +88,7 @@ class _SignupState extends State<Signup> {
                         Container(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'Email',
+                           'Email',
                             style: TextStyle(
                                 fontSize: 14.sp,
                                 color: const Color(textColor),
@@ -99,93 +96,56 @@ class _SignupState extends State<Signup> {
                           ),
                         ),
                         SizedBox(
-                          height: 5.h,
+                          height: 5..h,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TextField(
-                              controller: emailController,
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 1, color: emailHasError ? Colors.red :  const Color(primaryColor)),
-                                  borderRadius: BorderRadius.circular(5.r),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: emailHasError ? Colors.red : const Color(primaryColor),
-                                  ),
-                                  borderRadius: BorderRadius.circular(5.r),
-                                ),
-                                prefixIcon: Padding(
-                                  padding: EdgeInsets.only(left: 20.w, right: 10.w),
-                                  child: Icon(
-                                    size: 24.w,
-                                    Icons.email_outlined,
-                                    color: const Color(primaryColor),
-                                  ),
-                                ),
-                                hintText: 'Enter your email',
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 20.w, vertical: 15.h),
-                                hintStyle: const TextStyle(
-                                    color: Color(textStroke),
-                                    fontFamily: "Poppins"),
-                                focusColor: const Color(textStroke),
+                        TextField(
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 1, color: Color(primaryColor)),
+                              borderRadius: BorderRadius.circular(5.r),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                width: 1,
+                                color: Color(primaryColor),
+                              ),
+                              borderRadius: BorderRadius.circular(5.r),
+                            ),
+                            prefixIcon: Padding(
+                              padding: EdgeInsets.only(left: 20.w, right: 10.w),
+                              child: Icon(
+                                size: 24.w,
+                                Icons.email_outlined,
+                                color: const Color(primaryColor),
                               ),
                             ),
-                          ],
+                            hintText: 'Enter your email',
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 15.h),
+                            hintStyle: const TextStyle(
+                                color: Color(textStroke),
+                                fontFamily: "Poppins"),
+                            focusColor: const Color(textStroke),
+                          ),
                         ),
-                        if (emailHasError)
-                            Align(alignment: Alignment.centerLeft,
-                            child: Text(
-                              'Please enter your email',
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontFamily: "Poppins",
-                                  fontSize: 12.sp),
-                            ),)
-                            
                       ],
                     ),
                     Column(
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            
-                            
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const Otp(),
-                                
-                            //   ),
-                            // );
-                            
-                            if (emailController.text.isEmpty) {
-                              
-                              setState(() {
-                                emailHasError = emailController.text.isEmpty;
-                              });
-                            } else {
-                              setState(() {
-                                emailHasError = false;
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Otp(),
-                                  ),
-                                );
-                              });
-
-                            }
-
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Signinmpinscreen(),
+                              ),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(primaryColor),
-                            minimumSize: Size(double.infinity, 48.h),
+                            minimumSize: Size(
+                                double.infinity, 48.h), // Set width and height
                           ),
                           child: Text(
                             'Next',
@@ -218,9 +178,9 @@ class _SignupState extends State<Signup> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const Signin()));
+                                              const Signup()));
                                 },
-                                child: Text('Sign in',
+                                child: Text('Sign up',
                                     style: TextStyle(
                                         fontSize: 14.sp,
                                         fontFamily: "Poppins",
@@ -228,9 +188,9 @@ class _SignupState extends State<Signup> {
                               )
                             ],
                           ),
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

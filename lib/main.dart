@@ -1,4 +1,4 @@
-import 'package:app/pages/splashscreen.dart';
+import 'package:app/setup/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

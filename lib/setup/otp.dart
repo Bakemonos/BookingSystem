@@ -1,18 +1,19 @@
-import 'package:app/pages/mpinconfirm.dart';
+import 'package:app/setup/mpin.dart';
+import 'package:app/setup/signup.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
-class Mpin extends StatefulWidget {
-  const Mpin({super.key});
+class Otp extends StatefulWidget {
+  const Otp({super.key});
 
   @override
-  State<Mpin> createState() => _MyWidgetState();
+  State<Otp> createState() => _OtpState();
 }
 
-class _MyWidgetState extends State<Mpin> {
+class _OtpState extends State<Otp> {
   @override
   Widget build(BuildContext context) {
     // double screenWidth = MediaQuery.of(context).size.width;
@@ -21,7 +22,7 @@ class _MyWidgetState extends State<Mpin> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-         resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(backgroundColor),
         appBar: AppBar(
           backgroundColor: const Color(foregroundColor),
@@ -29,17 +30,12 @@ class _MyWidgetState extends State<Mpin> {
           automaticallyImplyLeading: false,
           title: Text(
             'Sign Up',
-            style: TextStyle(
-                fontSize: 20.sp,
-                fontFamily: "Poppins",
-                color: const Color(textColor)),
+            style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
           ),
           leading: IconButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Mpinconfirm()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Signup()));
               },
               icon: SvgPicture.asset(width: 24.w, height: 24.h,"assets/Icons/arrow.svg")),
         ),
@@ -50,29 +46,19 @@ class _MyWidgetState extends State<Mpin> {
             children: [
               Column(
                 children: [
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Create your 4-digit MPIN',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        color: const Color(textColor),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
                   Text(
-                    'Remember your 4-digit MPIN, this will serve as your login  code to enter the app',
+                    'Enter the 6-digit One-Time PIN \n(OTP)',
                     style: TextStyle(
-                        fontSize: 12.sp, color: const Color(textSubtitle)),
+                      fontSize: 16.sp,
+                      color: const Color(textColor),
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 50.h,
                   ),
                   VerificationCode(
+                    length: 6,
                     textStyle: TextStyle(fontSize: 24.sp),
                     underlineColor: const Color(primaryColor),
                     keyboardType: TextInputType.number,
@@ -80,14 +66,47 @@ class _MyWidgetState extends State<Mpin> {
                     onEditing: (value) {},
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 30.h,
                   ),
                   Text(
-                    'Please create a secure and memorable \n4-digit MPIN for yourself.',
+                    'We sent a 6-digit authentication code to your \nregistered Email',
                     style: TextStyle(
                         fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
-                  )
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  Text(
+                    'Didn’t receive code?',
+                    style: TextStyle(
+                        fontSize: 14.sp, color: const Color(textSubtitle)),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Resend New Code',
+                        style: TextStyle(
+                          fontSize: 13.sp,
+                          color: const Color(secondaryColor).withOpacity(0.8),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 5.w),
+                        child: Text(
+                          '2:00',
+                          style: TextStyle(
+                              fontSize: 13.sp,
+                              color:
+                                  const Color(secondaryColor).withOpacity(0.8)),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
               Column(
@@ -97,7 +116,7 @@ class _MyWidgetState extends State<Mpin> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Mpinconfirm(),
+                          builder: (context) => const Mpin(),
                         ),
                       );
                     },
@@ -107,7 +126,7 @@ class _MyWidgetState extends State<Mpin> {
                           Size(double.infinity, 48.h), // Set width and height
                     ),
                     child: Text(
-                      'Enter',
+                      'Verify',
                       style: TextStyle(
                         color: const Color(textLight),
                         fontSize: 16.sp,

@@ -1,5 +1,5 @@
-import 'package:app/pages/register.dart';
 import 'package:app/properties.dart';
+import 'package:app/setup/register.dart';
 import 'package:flutter/material.dart';
 
 class Review extends StatefulWidget {
@@ -195,7 +195,7 @@ class _ReviewState extends State<Review> {
                         fontFamily: "Poppins",
                       ),
                     ),
-                  ),                                                                                                                                                                                                                                                                                  
+                  ),
                 ),
                 SizedBox(
                   height: 60.0,

@@ -1,19 +1,18 @@
-import 'package:app/pages/mpin.dart';
-import 'package:app/pages/signup.dart';
+import 'package:app/setup/mpinconfirm.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
-class Otp extends StatefulWidget {
-  const Otp({super.key});
+class Mpin extends StatefulWidget {
+  const Mpin({super.key});
 
   @override
-  State<Otp> createState() => _OtpState();
+  State<Mpin> createState() => _MyWidgetState();
 }
 
-class _OtpState extends State<Otp> {
+class _MyWidgetState extends State<Mpin> {
   @override
   Widget build(BuildContext context) {
     // double screenWidth = MediaQuery.of(context).size.width;
@@ -22,7 +21,7 @@ class _OtpState extends State<Otp> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(backgroundColor),
         appBar: AppBar(
           backgroundColor: const Color(foregroundColor),
@@ -30,12 +29,17 @@ class _OtpState extends State<Otp> {
           automaticallyImplyLeading: false,
           title: Text(
             'Sign Up',
-            style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
+            style: TextStyle(
+                fontSize: 20.sp,
+                fontFamily: "Poppins",
+                color: const Color(textColor)),
           ),
           leading: IconButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Signup()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Mpinconfirm()));
               },
               icon: SvgPicture.asset(width: 24.w, height: 24.h,"assets/Icons/arrow.svg")),
         ),
@@ -46,19 +50,29 @@ class _OtpState extends State<Otp> {
             children: [
               Column(
                 children: [
-                  Text(
-                    'Enter the 6-digit One-Time PIN \n(OTP)',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: const Color(textColor),
+                  Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Create your 4-digit MPIN',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: const Color(textColor),
+                      ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    'Remember your 4-digit MPIN, this will serve as your login  code to enter the app',
+                    style: TextStyle(
+                        fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 30.h,
                   ),
                   VerificationCode(
-                    length: 6,
                     textStyle: TextStyle(fontSize: 24.sp),
                     underlineColor: const Color(primaryColor),
                     keyboardType: TextInputType.number,
@@ -66,47 +80,14 @@ class _OtpState extends State<Otp> {
                     onEditing: (value) {},
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 20.h,
                   ),
                   Text(
-                    'We sent a 6-digit authentication code to your \nregistered Email',
+                    'Please create a secure and memorable \n4-digit MPIN for yourself.',
                     style: TextStyle(
                         fontSize: 12.sp, color: const Color(textSubtitle)),
                     textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 40.h,
-                  ),
-                  Text(
-                    'Didn’t receive code?',
-                    style: TextStyle(
-                        fontSize: 14.sp, color: const Color(textSubtitle)),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Resend New Code',
-                        style: TextStyle(
-                          fontSize: 13.sp,
-                          color: const Color(secondaryColor).withOpacity(0.8),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 5.w),
-                        child: Text(
-                          '2:00',
-                          style: TextStyle(
-                              fontSize: 13.sp,
-                              color:
-                                  const Color(secondaryColor).withOpacity(0.8)),
-                        ),
-                      ),
-                    ],
-                  ),
+                  )
                 ],
               ),
               Column(
@@ -116,7 +97,7 @@ class _OtpState extends State<Otp> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Mpin(),
+                          builder: (context) => const Mpinconfirm(),
                         ),
                       );
                     },
@@ -126,7 +107,7 @@ class _OtpState extends State<Otp> {
                           Size(double.infinity, 48.h), // Set width and height
                     ),
                     child: Text(
-                      'Verify',
+                      'Enter',
                       style: TextStyle(
                         color: const Color(textLight),
                         fontSize: 16.sp,

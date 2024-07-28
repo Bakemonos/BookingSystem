@@ -1,4 +1,4 @@
-import 'package:app/pages/register.dart';
+import 'package:app/setup/register.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

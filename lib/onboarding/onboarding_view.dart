@@ -1,6 +1,6 @@
-import 'package:app/other/onboarding_items.dart';
-import 'package:app/pages/getstarted.dart';
+import 'package:app/onboarding/onboarding_items.dart';
 import 'package:app/properties.dart';
+import 'package:app/setup/getstarted.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -32,9 +32,12 @@ class _OnboardingViewState extends State<OnboardingView> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: const Color(backgroundColor),
-      bottomSheet: SizedBox(
-        height: 150.h,
+      backgroundColor: const Color(foregroundColor),
+      bottomSheet: Container(
+        height: 120.h,
+        decoration: const BoxDecoration(
+          color: Color(foregroundColor),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -51,9 +54,14 @@ class _OnboardingViewState extends State<OnboardingView> {
                     curve: Curves.easeIn),
                 controller: pageController,
                 count: controller.items.length,
-                effect: const WormEffect(
+                effect: WormEffect(
+                    dotHeight: 8.h,
+                    dotWidth: 18.w,
+                    spacing: 10.w,
+                    type: WormType.thin,
+                    dotColor: const Color(dotDefault),
                     activeDotColor:
-                        Color(primaryColor)), // Customize effect here
+                        const Color(primaryColor)), // Customize effect here
               ),
             ),
             const Spacer(
@@ -114,14 +122,16 @@ class _OnboardingViewState extends State<OnboardingView> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 30.h,
+                      Image.asset(
+                        controller.items[index].image,
+                        fit: BoxFit.contain,
+                        width: screenWidth,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 15.h),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               controller.items[index].tittle,
@@ -130,7 +140,6 @@ class _OnboardingViewState extends State<OnboardingView> {
                                   fontSize: 20.sp,
                                   color: const Color(textColor),
                                   fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center,
                             ),
                             Text(
                               controller.items[index].description,
@@ -138,15 +147,9 @@ class _OnboardingViewState extends State<OnboardingView> {
                                   fontFamily: "Poppins",
                                   fontSize: 16.sp,
                                   color: const Color(textSubtitle)),
-                              textAlign: TextAlign.center,
                             ),
                           ],
                         ),
-                      ),
-                      Image.asset(
-                        controller.items[index].image,
-                        fit: BoxFit.contain,
-                        width: screenWidth,
                       ),
                     ],
                   );
@@ -164,7 +167,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     child: Text(
                       'Skip',
                       style: TextStyle(
-                          fontSize: 16.sp,
+                          fontSize: 12.sp,
                           fontFamily: "Poppins",
                           color: const Color(textColor)),
                     ))),
