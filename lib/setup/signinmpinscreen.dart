@@ -20,14 +20,14 @@ class _SigninState extends State<Signinmpinscreen> {
 
   void navigationBottomMenu() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const Homemenu()));
+        context, MaterialPageRoute(builder: (context) => const HomeMenu()));
   }
 
   // MPIN VALIDATION
   Widget numButton(int number) {
     return TextButton(
       style: ButtonStyle(
-          fixedSize: WidgetStateProperty.all(const Size(80, 80)),
+          fixedSize: WidgetStateProperty.all(const Size(70, 70)),
           alignment: Alignment.center),
       onPressed: () {
         setState(() {
@@ -52,7 +52,7 @@ class _SigninState extends State<Signinmpinscreen> {
 
   @override
   Widget build(BuildContext context) {
-    // double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery.of(context).size.width;
     // double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -150,7 +150,6 @@ class _SigninState extends State<Signinmpinscreen> {
                       barrierColor: Colors.transparent,
                       context: context,
                       builder: (context) => Container(
-                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: const Color(foregroundColor),
                           borderRadius: BorderRadius.only(
@@ -158,135 +157,131 @@ class _SigninState extends State<Signinmpinscreen> {
                             topRight: Radius.circular(50.r),
                           ),
                         ),
-                        // (index) => numButton();
-
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 20.h),
-                          child: Column(
+                          padding: EdgeInsets.symmetric(vertical: 16.h),
+                          child: Wrap(
                             children: [
-                              const Spacer(
-                                flex: 1,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  numButton(1),
                                   SizedBox(
-                                    width: 30.w,
+                                    height: 10.h,
                                   ),
-                                  numButton(2),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      numButton(1),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      numButton(2),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      numButton(3),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      numButton(4),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      numButton(5),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      numButton(6),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      numButton(7),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      numButton(8),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      numButton(9),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      TextButton(
+                                        style: ButtonStyle(
+                                          fixedSize: WidgetStateProperty.all(
+                                            const Size(70, 70),
+                                          ),
+                                        ),
+                                        onPressed: () =>
+                                            setState(() => enteredPin = ''),
+                                        child: Text(
+                                          'Reset',
+                                          style: TextStyle(
+                                            fontSize: 13.sp,
+                                            color: const Color(textColor),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      numButton(0),
+                                      SizedBox(
+                                        width: 20.w,
+                                      ),
+                                      TextButton(
+                                        style: ButtonStyle(
+                                          fixedSize: WidgetStateProperty.all(
+                                            const Size(70, 70),
+                                          ),
+                                        ),
+                                        onPressed: () => setState(() =>
+                                            enteredPin = enteredPin.isNotEmpty
+                                                ? enteredPin.substring(
+                                                    0, enteredPin.length - 1)
+                                                : enteredPin),
+                                        child: SvgPicture.asset(
+                                          height: 30.h,
+                                          width: 30.w,
+                                          "assets/Icons/backspace.svg",
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(
-                                    width: 30.w,
+                                    height: 50.h,
                                   ),
-                                  numButton(3),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                        'Help Center',
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontSize: 12.sp,
+                                          color: const Color(textSubtitle),
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Forgot MPIN?',
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontSize: 12.sp,
+                                          color: const Color(textSubtitle),
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ],
-                              ),
-                              const Spacer(
-                                flex: 2,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  numButton(4),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  numButton(5),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  numButton(6),
-                                ],
-                              ),
-                              const Spacer(
-                                flex: 2,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  numButton(7),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  numButton(8),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  numButton(9),
-                                ],
-                              ),
-                              const Spacer(
-                                flex: 2,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  TextButton(
-                                    style: ButtonStyle(
-                                      fixedSize: WidgetStateProperty.all(
-                                          const Size(80, 80)),
-                                    ),
-                                    onPressed: () =>
-                                        setState(() => enteredPin = ''),
-                                    child: Text(
-                                      'Reset',
-                                      style: TextStyle(
-                                          fontSize: 13.sp,
-                                          color: const Color(textColor)),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  numButton(0),
-                                  SizedBox(
-                                    width: 30.w,
-                                  ),
-                                  TextButton(
-                                    style: ButtonStyle(
-                                      fixedSize: WidgetStateProperty.all(
-                                          const Size(80, 80)),
-                                    ),
-                                    onPressed: () => setState(() => enteredPin =
-                                        enteredPin.isNotEmpty
-                                            ? enteredPin.substring(
-                                                0, enteredPin.length - 1)
-                                            : enteredPin),
-                                    child: SvgPicture.asset(
-                                      height: 30.h,
-                                      width: 30.w,
-                                      "assets/Icons/backspace.svg",
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(
-                                flex: 3,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    'Help Center',
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 12.sp,
-                                        color: const Color(textSubtitle),
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    'Forgot MPIN?',
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 12.sp,
-                                        color: const Color(textSubtitle),
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(
-                                flex: 1,
                               ),
                             ],
                           ),
