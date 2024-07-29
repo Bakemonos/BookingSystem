@@ -1,6 +1,7 @@
 import 'package:app/properties.dart';
 import 'package:app/setup/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Review extends StatefulWidget {
   const Review({super.key});
@@ -17,7 +18,7 @@ class _ReviewState extends State<Review> {
     return Scaffold(
       backgroundColor: const Color(backgroundColor),
       body: Padding(
-        padding: const EdgeInsetsDirectional.all(25.0),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

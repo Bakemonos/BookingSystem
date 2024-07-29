@@ -1,5 +1,5 @@
-import 'package:app/setup/getstarted.dart';
 import 'package:app/properties.dart';
+import 'package:app/setup/getstarted.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -174,11 +174,11 @@ class _RegisterState extends State<Register> {
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(backgroundColor),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 30.h),
+              SizedBox(height: 25.h),
               Text(
                 'Personal Information ',
                 style: TextStyle(

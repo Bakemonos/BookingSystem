@@ -1,7 +1,7 @@
+import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:app/setup/otp.dart';
 import 'package:app/setup/signin.dart';
-import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -59,7 +59,7 @@ class _SignupState extends State<Signup> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.fromLTRB(25.w, 0, 25.w, 25.h),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -109,18 +109,24 @@ class _SignupState extends State<Signup> {
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      width: 1, color: emailHasError ? Colors.red :  const Color(primaryColor)),
+                                      width: 1,
+                                      color: emailHasError
+                                          ? Colors.red
+                                          : const Color(primaryColor)),
                                   borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     width: 2,
-                                    color: emailHasError ? Colors.red : const Color(primaryColor),
+                                    color: emailHasError
+                                        ? Colors.red
+                                        : const Color(primaryColor),
                                   ),
                                   borderRadius: BorderRadius.circular(5.r),
                                 ),
                                 prefixIcon: Padding(
-                                  padding: EdgeInsets.only(left: 20.w, right: 10.w),
+                                  padding:
+                                      EdgeInsets.only(left: 20.w, right: 10.w),
                                   child: Icon(
                                     size: 24.w,
                                     Icons.email_outlined,
@@ -139,33 +145,31 @@ class _SignupState extends State<Signup> {
                           ],
                         ),
                         if (emailHasError)
-                            Align(alignment: Alignment.centerLeft,
+                          Align(
+                            alignment: Alignment.centerLeft,
                             child: Text(
                               'Please enter your email',
                               style: TextStyle(
                                   color: Colors.red,
                                   fontFamily: "Poppins",
                                   fontSize: 12.sp),
-                            ),)
-                            
+                            ),
+                          )
                       ],
                     ),
                     Column(
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            
-                            
                             // Navigator.push(
                             //   context,
                             //   MaterialPageRoute(
                             //     builder: (context) => const Otp(),
-                                
+
                             //   ),
                             // );
-                            
+
                             if (emailController.text.isEmpty) {
-                              
                               setState(() {
                                 emailHasError = emailController.text.isEmpty;
                               });
@@ -179,9 +183,7 @@ class _SignupState extends State<Signup> {
                                   ),
                                 );
                               });
-
                             }
-
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(primaryColor),

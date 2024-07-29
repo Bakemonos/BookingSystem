@@ -1,5 +1,5 @@
-import 'package:app/setup/mpinconfirm.dart';
 import 'package:app/properties.dart';
+import 'package:app/setup/mpinconfirm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +21,7 @@ class _MyWidgetState extends State<Mpin> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-         resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(backgroundColor),
         appBar: AppBar(
           backgroundColor: const Color(foregroundColor),
@@ -41,10 +41,11 @@ class _MyWidgetState extends State<Mpin> {
                     MaterialPageRoute(
                         builder: (context) => const Mpinconfirm()));
               },
-              icon: SvgPicture.asset(width: 24.w, height: 24.h,"assets/Icons/arrow.svg")),
+              icon: SvgPicture.asset(
+                  width: 24.w, height: 24.h, "assets/Icons/arrow.svg")),
         ),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

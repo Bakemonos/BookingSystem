@@ -153,7 +153,7 @@ class _SigninState extends State<Signinmpinscreen> {
                       barrierColor: Colors.transparent,
                       context: context,
                       builder: (context) => Container(
-                        height: 400.h,
+                        height: 300.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: const Color(foregroundColor),
@@ -168,84 +168,80 @@ class _SigninState extends State<Signinmpinscreen> {
                           padding: EdgeInsets.symmetric(vertical: 20.h),
                           child: Column(
                             children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(vertical: 5.h),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    numButton(1),
-                                    numButton(2),
-                                    numButton(3),
-                                  ],
-                                ),
+                              const Spacer(
+                                flex: 1,
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(vertical: 5.h),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    numButton(4),
-                                    numButton(5),
-                                    numButton(6),
-                                  ],
-                                ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  numButton(1),
+                                  numButton(2),
+                                  numButton(3),
+                                ],
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(vertical: 5.h),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    numButton(7),
-                                    numButton(8),
-                                    numButton(9),
-                                  ],
-                                ),
+                              const Spacer(
+                                flex: 2,
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(vertical: 5.h),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          setState(() => enteredPin = ''),
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 10.h),
-                                        child: Text(
-                                          'Reset',
-                                          style: TextStyle(
-                                              fontSize: 13.sp,
-                                              color: const Color(textColor)),
-                                        ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  numButton(4),
+                                  numButton(5),
+                                  numButton(6),
+                                ],
+                              ),
+                              const Spacer(
+                                flex: 2,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  numButton(7),
+                                  numButton(8),
+                                  numButton(9),
+                                ],
+                              ),
+                              const Spacer(
+                                flex: 2,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        setState(() => enteredPin = ''),
+                                    child: Text(
+                                      'Reset',
+                                      style: TextStyle(
+                                          fontSize: 13.sp,
+                                          color: const Color(textColor)),
+                                    ),
+                                  ),
+                                  numButton(0),
+                                  TextButton(
+                                    onPressed: () => setState(() => enteredPin =
+                                        enteredPin.isNotEmpty
+                                            ? enteredPin.substring(
+                                                0, enteredPin.length - 1)
+                                            : enteredPin),
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 10.h),
+                                      child: SvgPicture.asset(
+                                        height: 24.h,
+                                        width: 24.w,
+                                        "assets/Icons/backspace.svg",
                                       ),
                                     ),
-                                    numButton(0),
-                                    TextButton(
-                                      onPressed: () => setState(() =>
-                                          enteredPin = enteredPin.isNotEmpty
-                                              ? enteredPin.substring(
-                                                  0, enteredPin.length - 1)
-                                              : enteredPin),
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 10.h),
-                                        child: SvgPicture.asset(
-                                          height: 24.h,
-                                          width: 24.w,
-                                          "assets/Icons/backspace.svg",
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                height: 20.h,
+                              const Spacer(
+                                flex: 3,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -268,6 +264,9 @@ class _SigninState extends State<Signinmpinscreen> {
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ],
+                              ),
+                              const Spacer(
+                                flex: 1,
                               ),
                             ],
                           ),

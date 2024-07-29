@@ -1,7 +1,7 @@
+import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:app/setup/signinmpinscreen.dart';
 import 'package:app/setup/signup.dart';
-import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -56,7 +56,7 @@ class _SigninState extends State<Signin> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.fromLTRB(25.w, 0, 25.w, 25.h),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -88,7 +88,7 @@ class _SigninState extends State<Signin> {
                         Container(
                           alignment: Alignment.topLeft,
                           child: Text(
-                           'Email',
+                            'Email',
                             style: TextStyle(
                                 fontSize: 14.sp,
                                 color: const Color(textColor),

@@ -1,6 +1,6 @@
+import 'package:app/properties.dart';
 import 'package:app/setup/signin.dart';
 import 'package:app/setup/signup.dart';
-import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,19 +16,26 @@ class _GetstartedState extends State<Getstarted> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    //double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
-          Image.asset(
-            width: double.infinity.w,
-            'assets/Pictures/AppBackground.png',
-            fit: BoxFit.contain,
+          Positioned(
+            top: 0,
+            right: 0,
+            left: 0,
+            child: Image.asset(
+              width: double.infinity.w,
+              'assets/Pictures/AppBackground.png',
+              fit: BoxFit.contain,
+            ),
           ),
-          SizedBox(
-            width: screenWidth.w,
-            height: screenHeight.h,
+          Positioned(
+            bottom: 0,
+            right: 0,
+            left: 0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -45,12 +52,9 @@ class _GetstartedState extends State<Getstarted> {
                   ),
                   child: Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                     child: Column(
                       children: [
-                        SizedBox(
-                          height: 5.h,
-                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

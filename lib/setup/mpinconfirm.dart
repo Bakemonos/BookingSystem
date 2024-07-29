@@ -37,7 +37,7 @@ class Mpinconfirm extends StatefulWidget {
               icon: SvgPicture.asset(width: 24.w, height: 24.h,"assets/Icons/arrow.svg")),
         ),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
