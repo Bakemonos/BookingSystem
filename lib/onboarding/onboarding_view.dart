@@ -35,9 +35,7 @@ class _OnboardingViewState extends State<OnboardingView> {
     return Scaffold(
       backgroundColor: const Color(foregroundColor),
       bottomSheet: Container(
-        
         height: 120.h,
-        width: screenWidth.w,
         decoration: const BoxDecoration(
           color: Color(foregroundColor),
         ),
@@ -90,7 +88,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(primaryColor),
                 minimumSize:
-                    Size(screenWidth - 32, 48.h), // Set width and height
+                    Size(screenWidth - 30, 48.h), // Set width and height
               ),
               child: Text(
                 currentPage == controller.items.length - 1
@@ -162,7 +160,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   );
                 }),
             Positioned(
-                right: 16,
+                right: 0,
                 top: 0,
                 child: TextButton(
                     onPressed: () {

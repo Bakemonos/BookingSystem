@@ -1,9 +1,9 @@
+import 'package:app/Widgets/back_arrow.dart';
+import 'package:app/properties.dart';
 import 'package:app/setup/mpin.dart';
 import 'package:app/setup/signup.dart';
-import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Otp extends StatefulWidget {
@@ -32,12 +32,7 @@ class _OtpState extends State<Otp> {
             'Sign Up',
             style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
           ),
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Signup()));
-              },
-              icon: SvgPicture.asset(width: 24.w, height: 24.h,"assets/Icons/arrow.svg")),
+          leading: backArrowButton(context, const Signup()),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
@@ -58,6 +53,9 @@ class _OtpState extends State<Otp> {
                     height: 50.h,
                   ),
                   VerificationCode(
+                    autofocus: true,
+                    digitsOnly: true,
+                     
                     length: 6,
                     textStyle: TextStyle(fontSize: 24.sp),
                     underlineColor: const Color(primaryColor),

@@ -1,10 +1,10 @@
+import 'package:app/Widgets/back_arrow.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:app/setup/otp.dart';
 import 'package:app/setup/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -35,15 +35,7 @@ class _SignupState extends State<Signup> {
             'Sign Up',
             style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
           ),
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Getstarted()));
-              },
-              icon: SvgPicture.asset(
-                  width: 24.w, height: 24.h, "assets/Icons/arrow.svg")),
+          leading: backArrowButton(context, const Getstarted()),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,

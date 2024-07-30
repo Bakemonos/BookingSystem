@@ -12,11 +12,25 @@ class Getstarted extends StatefulWidget {
   State<Getstarted> createState() => _GetstartedState();
 }
 
+class ConditionalSizedBox extends StatelessWidget {
+  const ConditionalSizedBox({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    double sizedBoxHeight = screenHeight < 700 ? 50.0 : 150.0;
+
+    return SizedBox(
+      height: sizedBoxHeight,
+    );
+  }
+}
+
 class _GetstartedState extends State<Getstarted> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    //double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Stack(
@@ -40,7 +54,6 @@ class _GetstartedState extends State<Getstarted> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  height: 430.h,
                   width: screenWidth.w,
                   decoration: BoxDecoration(
                     color: const Color(foregroundColor),
@@ -151,6 +164,7 @@ class _GetstartedState extends State<Getstarted> {
                             ),
                           ),
                         ),
+                        const ConditionalSizedBox(),
                       ],
                     ),
                   ),

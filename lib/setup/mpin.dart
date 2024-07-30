@@ -1,8 +1,8 @@
+import 'package:app/Widgets/back_arrow.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/mpinconfirm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Mpin extends StatefulWidget {
@@ -34,15 +34,7 @@ class _MyWidgetState extends State<Mpin> {
                 fontFamily: "Poppins",
                 color: const Color(textColor)),
           ),
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Mpinconfirm()));
-              },
-              icon: SvgPicture.asset(
-                  width: 24.w, height: 24.h, "assets/Icons/arrow.svg")),
+          leading: backArrowButton(context, const Mpinconfirm()),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
@@ -74,6 +66,8 @@ class _MyWidgetState extends State<Mpin> {
                     height: 30.h,
                   ),
                   VerificationCode(
+                    autofocus: true,
+                    digitsOnly: true,
                     textStyle: TextStyle(fontSize: 24.sp),
                     underlineColor: const Color(primaryColor),
                     keyboardType: TextInputType.number,

@@ -1,3 +1,4 @@
+import 'package:app/Widgets/back_arrow.dart';
 import 'package:app/pages/navigation_menu.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/signin.dart';
@@ -62,13 +63,7 @@ class _SigninState extends State<Signinmpinscreen> {
           'Sign In',
           style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins"),
         ),
-        leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Signin()));
-            },
-            icon: SvgPicture.asset(
-                width: 24.w, height: 24.h, "assets/Icons/arrow.svg")),
+        leading: backArrowButton(context, const Signin()),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
@@ -153,7 +148,6 @@ class _SigninState extends State<Signinmpinscreen> {
                       barrierColor: Colors.transparent,
                       context: context,
                       builder: (context) => Container(
-                        height: 300.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: const Color(foregroundColor),
@@ -228,14 +222,10 @@ class _SigninState extends State<Signinmpinscreen> {
                                             ? enteredPin.substring(
                                                 0, enteredPin.length - 1)
                                             : enteredPin),
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 10.h),
-                                      child: SvgPicture.asset(
-                                        height: 24.h,
-                                        width: 24.w,
-                                        "assets/Icons/backspace.svg",
-                                      ),
+                                    child: SvgPicture.asset(
+                                      height: 24.h,
+                                      width: 24.w,
+                                      "assets/Icons/backspace.svg",
                                     ),
                                   ),
                                 ],
@@ -280,7 +270,7 @@ class _SigninState extends State<Signinmpinscreen> {
                       color: const Color(primaryColor),
                     ),
                     padding:
-                        EdgeInsets.symmetric(horizontal: 13.w, vertical: 15.h),
+                        EdgeInsets.symmetric(horizontal: 13.w, vertical: 18.h),
                     child: Column(
                       children: [
                         SvgPicture.asset(

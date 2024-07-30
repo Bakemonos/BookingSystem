@@ -14,3 +14,6 @@ const dotDefault = 0xFFC0DEFF;
 
 //Highlight
 const indicatorColor = 0xFFC2F0FF;
+
+//TEXT BACKGROUND
+const textBackground = 0xFFACACAC;
