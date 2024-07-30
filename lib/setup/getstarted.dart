@@ -19,7 +19,7 @@ class ConditionalSizedBox extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
 
-    double sizedBoxHeight = screenHeight < 700 ? 50.0 : 150.0;
+    double sizedBoxHeight = screenHeight < 720 ? 50.0 : 150.0;
 
     return SizedBox(
       height: sizedBoxHeight,

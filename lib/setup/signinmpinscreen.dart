@@ -1,5 +1,5 @@
 import 'package:app/Widgets/back_arrow.dart';
-import 'package:app/pages/navigation_menu.dart';
+import 'package:app/pages/home_menu.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/signin.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,14 +19,16 @@ class _SigninState extends State<Signinmpinscreen> {
   bool isPinVisible = false;
 
   void navigationBottomMenu() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const NavigationMenu()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const Homemenu()));
   }
 
   // MPIN VALIDATION
   Widget numButton(int number) {
     return TextButton(
-      style: const ButtonStyle(alignment: Alignment.center),
+      style: ButtonStyle(
+          fixedSize: WidgetStateProperty.all(const Size(80, 80)),
+          alignment: Alignment.center),
       onPressed: () {
         setState(() {
           if (enteredPin.length < 4) {
@@ -166,11 +168,16 @@ class _SigninState extends State<Signinmpinscreen> {
                                 flex: 1,
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   numButton(1),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   numButton(2),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   numButton(3),
                                 ],
                               ),
@@ -178,11 +185,16 @@ class _SigninState extends State<Signinmpinscreen> {
                                 flex: 2,
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   numButton(4),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   numButton(5),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   numButton(6),
                                 ],
                               ),
@@ -190,11 +202,16 @@ class _SigninState extends State<Signinmpinscreen> {
                                 flex: 2,
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   numButton(7),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   numButton(8),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   numButton(9),
                                 ],
                               ),
@@ -202,10 +219,13 @@ class _SigninState extends State<Signinmpinscreen> {
                                 flex: 2,
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   TextButton(
+                                    style: ButtonStyle(
+                                      fixedSize: WidgetStateProperty.all(
+                                          const Size(80, 80)),
+                                    ),
                                     onPressed: () =>
                                         setState(() => enteredPin = ''),
                                     child: Text(
@@ -215,16 +235,26 @@ class _SigninState extends State<Signinmpinscreen> {
                                           color: const Color(textColor)),
                                     ),
                                   ),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   numButton(0),
+                                  SizedBox(
+                                    width: 30.w,
+                                  ),
                                   TextButton(
+                                    style: ButtonStyle(
+                                      fixedSize: WidgetStateProperty.all(
+                                          const Size(80, 80)),
+                                    ),
                                     onPressed: () => setState(() => enteredPin =
                                         enteredPin.isNotEmpty
                                             ? enteredPin.substring(
                                                 0, enteredPin.length - 1)
                                             : enteredPin),
                                     child: SvgPicture.asset(
-                                      height: 24.h,
-                                      width: 24.w,
+                                      height: 30.h,
+                                      width: 30.w,
                                       "assets/Icons/backspace.svg",
                                     ),
                                   ),
@@ -270,7 +300,7 @@ class _SigninState extends State<Signinmpinscreen> {
                       color: const Color(primaryColor),
                     ),
                     padding:
-                        EdgeInsets.symmetric(horizontal: 13.w, vertical: 18.h),
+                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 16.h),
                     child: Column(
                       children: [
                         SvgPicture.asset(
