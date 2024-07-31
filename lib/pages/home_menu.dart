@@ -36,9 +36,9 @@ class _HomeMenuState extends State<HomeMenu> {
             topRight: Radius.circular(30.0),
           ),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 18),
         child: GNav(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           activeColor: const Color(textLight),
           color: const Color(textColor),
           tabBackgroundColor: const Color(primaryColor),
