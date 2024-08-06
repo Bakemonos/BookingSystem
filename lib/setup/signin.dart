@@ -1,4 +1,6 @@
 import 'package:app/Widgets/back_arrow.dart';
+import 'package:app/components/button.dart';
+import 'package:app/components/text_Field.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:app/setup/signinmpinscreen.dart';
@@ -14,6 +16,9 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
+  final emailTextController = TextEditingController();
+  final passwordTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // double screenWidth = MediaQuery.of(context).size.width;
@@ -90,64 +95,19 @@ class _SigninState extends State<Signin> {
                         SizedBox(
                           height: 5..h,
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  width: 1, color: Color(primaryColor)),
-                              borderRadius: BorderRadius.circular(5.r),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                width: 1,
-                                color: Color(primaryColor),
-                              ),
-                              borderRadius: BorderRadius.circular(5.r),
-                            ),
-                            prefixIcon: Padding(
-                              padding: EdgeInsets.only(left: 20.w, right: 10.w),
-                              child: Icon(
-                                size: 24.w,
-                                Icons.email_outlined,
-                                color: const Color(primaryColor),
-                              ),
-                            ),
-                            hintText: 'Enter your email',
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 15.h),
-                            hintStyle: const TextStyle(
-                                color: Color(textStroke),
-                                fontFamily: "Poppins"),
-                            focusColor: const Color(textStroke),
-                          ),
+                        MyTextField(
+                          controller: emailTextController,
+                          obscureText: false,
+                          hintText: 'Enter your email',
+                          icon: Icons.email_outlined,
                         ),
                       ],
                     ),
                     Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Signinmpinscreen(),
-                              ),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(primaryColor),
-                            minimumSize: Size(
-                                double.infinity, 48.h), // Set width and height
-                          ),
-                          child: Text(
-                            'Next',
-                            style: TextStyle(
-                              color: const Color(textLight),
-                              fontSize: 16.sp,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
+                        const MyButton(
+                          destinationScreen: Signinmpinscreen(),
+                          textButton: 'Sign In',
                         ),
                         SizedBox(
                           height: 48.h,

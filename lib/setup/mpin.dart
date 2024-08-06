@@ -1,4 +1,5 @@
 import 'package:app/Widgets/back_arrow.dart';
+import 'package:app/components/button.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/mpinconfirm.dart';
 import 'package:flutter/material.dart';
@@ -85,31 +86,11 @@ class _MyWidgetState extends State<Mpin> {
                   )
                 ],
               ),
-              Column(
+              const Column(
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Mpinconfirm(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(primaryColor),
-                      minimumSize:
-                          Size(double.infinity, 48.h), // Set width and height
-                    ),
-                    child: Text(
-                      'Enter',
-                      style: TextStyle(
-                        color: const Color(textLight),
-                        fontSize: 16.sp,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
+                  MyButton(
+                    destinationScreen: Mpinconfirm(),
+                    textButton: 'Enter',
                   ),
                 ],
               ),

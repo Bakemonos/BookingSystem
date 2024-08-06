@@ -1,4 +1,5 @@
 import 'package:app/Widgets/back_arrow.dart';
+import 'package:app/components/button.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/mpin.dart';
 import 'package:app/setup/signup.dart';
@@ -55,7 +56,6 @@ class _OtpState extends State<Otp> {
                   VerificationCode(
                     autofocus: true,
                     digitsOnly: true,
-                     
                     length: 6,
                     textStyle: TextStyle(fontSize: 24.sp),
                     underlineColor: const Color(primaryColor),
@@ -107,31 +107,11 @@ class _OtpState extends State<Otp> {
                   ),
                 ],
               ),
-              Column(
+              const Column(
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Mpin(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(primaryColor),
-                      minimumSize:
-                          Size(double.infinity, 48.h), // Set width and height
-                    ),
-                    child: Text(
-                      'Verify',
-                      style: TextStyle(
-                        color: const Color(textLight),
-                        fontSize: 16.sp,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
+                  MyButton(
+                    destinationScreen: Mpin(),
+                    textButton: 'Verify',
                   ),
                 ],
               ),

@@ -1,4 +1,6 @@
 import 'package:app/Widgets/back_arrow.dart';
+import 'package:app/components/button.dart';
+import 'package:app/components/text_WithValidation_Field.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:app/setup/otp.dart';
@@ -19,9 +21,6 @@ bool emailHasError = false;
 class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
-    // double screenWidth = MediaQuery.of(context).size.width;
-    // double screenHeight = MediaQuery.of(context).size.height;
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -93,103 +92,20 @@ class _SignupState extends State<Signup> {
                         SizedBox(
                           height: 5.h,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TextField(
-                              controller: emailController,
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 1,
-                                      color: emailHasError
-                                          ? Colors.red
-                                          : const Color(primaryColor)),
-                                  borderRadius: BorderRadius.circular(5.r),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: emailHasError
-                                        ? Colors.red
-                                        : const Color(primaryColor),
-                                  ),
-                                  borderRadius: BorderRadius.circular(5.r),
-                                ),
-                                prefixIcon: Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 20.w, right: 10.w),
-                                  child: Icon(
-                                    size: 24.w,
-                                    Icons.email_outlined,
-                                    color: const Color(primaryColor),
-                                  ),
-                                ),
-                                hintText: 'Enter your email',
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 20.w, vertical: 15.h),
-                                hintStyle: const TextStyle(
-                                    color: Color(textStroke),
-                                    fontFamily: "Poppins"),
-                                focusColor: const Color(textStroke),
-                              ),
-                            ),
-                          ],
+                        MyTextFieldWithValidation(
+                          controller: emailController,
+                          obscureText: false,
+                          hintText: 'Enter your email',
+                          icon: Icons.email_outlined,
+                          hasError: emailHasError,
                         ),
-                        if (emailHasError)
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'Please enter your email',
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontFamily: "Poppins",
-                                  fontSize: 12.sp),
-                            ),
-                          )
                       ],
                     ),
                     Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const Otp(),
-
-                            //   ),
-                            // );
-
-                            if (emailController.text.isEmpty) {
-                              setState(() {
-                                emailHasError = emailController.text.isEmpty;
-                              });
-                            } else {
-                              setState(() {
-                                emailHasError = false;
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Otp(),
-                                  ),
-                                );
-                              });
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(primaryColor),
-                            minimumSize: Size(double.infinity, 48.h),
-                          ),
-                          child: Text(
-                            'Next',
-                            style: TextStyle(
-                              color: const Color(textLight),
-                              fontSize: 16.sp,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
+                        const MyButton(
+                          destinationScreen: Otp(),
+                          textButton: 'Sign Up',
                         ),
                         SizedBox(
                           height: 48.h,
@@ -209,17 +125,21 @@ class _SignupState extends State<Signup> {
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Signin()));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Signin(),
+                                    ),
+                                  );
                                 },
-                                child: Text('Sign in',
-                                    style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontFamily: "Poppins",
-                                        color: const Color(primaryColor))),
-                              )
+                                child: Text(
+                                  'Sign in',
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: "Poppins",
+                                    color: const Color(primaryColor),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         )

@@ -1,3 +1,6 @@
+import 'package:app/components/datePicker_Field.dart';
+import 'package:app/components/dropDown_Field.dart';
+import 'package:app/components/register_Field.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +16,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final TextEditingController _dateController = TextEditingController();
   String valueChoose = "Select";
   bool isChecked = false;
   void dialogpopup() {
@@ -220,255 +222,28 @@ class _RegisterState extends State<Register> {
               SizedBox(
                 height: 30.h,
               ),
-              Column(
+              const Column(
                 children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'First Name',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: const Color(textColor),
-                          fontFamily: "Poppins"),
-                    ),
+                  MyRegisterField(
+                    hintText: 'Enter First Name',
+                    textTitle: 'First Name',
                   ),
-                  SizedBox(
-                    height: 5.h,
+                  MyRegisterField(
+                    hintText: 'Enter Middle Initial',
+                    textTitle: 'Middle Initial',
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 1,
-                            color: Color(textSubtitle),
-                          ),
-                          borderRadius: BorderRadius.circular(5.r),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 1,
-                            color: Color(primaryColor),
-                          ),
-                          borderRadius: BorderRadius.circular(5.r),
-                        ),
-                        hintStyle: const TextStyle(
-                          color: Color(textStroke),
-                        ),
-                        hintText: 'Enter First Name',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 15.h)),
+                  MyRegisterField(
+                    hintText: 'Enter Last Name',
+                    textTitle: 'Last Name',
                   ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Middle Initial',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: const Color(textColor),
-                          fontFamily: "Poppins"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  TextField(
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                width: 1, color: Color(textSubtitle)),
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Color(primaryColor),
-                            ),
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                          hintStyle: const TextStyle(color: Color(textStroke)),
-                          hintText: 'Enter Middle Initial',
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 20.w, vertical: 15.h))),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Last Name',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: const Color(textColor),
-                          fontFamily: "Poppins"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  TextField(
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                width: 1, color: Color(textSubtitle)),
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              width: 1,
-                              color: Color(primaryColor),
-                            ),
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                          hintStyle: const TextStyle(color: Color(textStroke)),
-                          hintText: 'Enter Last Name',
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 20.w, vertical: 15.h))),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Gender',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: const Color(textColor),
-                          fontFamily: "Poppins"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 48.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 1, color: const Color(textSubtitle)),
-                        borderRadius: BorderRadius.circular(5.r)),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                          padding: EdgeInsets.symmetric(horizontal: 20.w),
-                          iconSize: 24.w,
-                          dropdownColor: const Color(foregroundColor),
-                          borderRadius: BorderRadius.circular(8.r),
-                          value: valueChoose,
-                          items: [
-                            DropdownMenuItem(
-                              value: 'Select',
-                              child: Text(
-                                'Select',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textStroke)),
-                              ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Male',
-                              child: Text(
-                                'Male',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textStroke)),
-                              ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Female',
-                              child: Text(
-                                'Female',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textStroke)),
-                              ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Non-binary',
-                              child: Text(
-                                'Non-binary',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textStroke)),
-                              ),
-                            ),
-                            DropdownMenuItem(
-                              value: 'Other',
-                              child: Text(
-                                'Other',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: "Poppins",
-                                    color: const Color(textStroke)),
-                              ),
-                            ),
-                          ],
-                          icon: const Icon(
-                            Icons.arrow_drop_down,
-                            color: Color(textColor),
-                          ),
-                          isExpanded: true,
-                          style: const TextStyle(color: Color(textColor)),
-                          onChanged: (newValue) {
-                            setState(() {
-                              valueChoose = newValue!;
-                            });
-                          }),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Date of Birth',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: const Color(textColor),
-                          fontFamily: "Poppins"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  TextField(
-                    controller: _dateController,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              width: 1, color: Color(textSubtitle)),
-                          borderRadius: BorderRadius.circular(5.r),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            width: 1,
-                            color: Color(primaryColor),
-                          ),
-                          borderRadius: BorderRadius.circular(5.r),
-                        ),
-                        hintStyle: const TextStyle(color: Color(textStroke)),
-                        suffixIcon: Padding(
-                          padding: EdgeInsets.only(right: 20.w),
-                          child: SvgPicture.asset(
-                            "assets/Icons/calendar.svg",
-                            fit: BoxFit.scaleDown,
-                          ),
-                        ),
-                        hintText: 'Date of Birth',
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 15.h)),
-                    readOnly: true,
-                    onTap: () {
-                      _selectDate();
-                    },
-                  ),
+                  MyDropDownField(textTitle: 'Gender', items: [
+                    'Select',
+                    'Male',
+                    'Female',
+                    'Non-binary',
+                    'Other'
+                  ]),
+                  MyDatePicker(),
                 ],
               ),
               SizedBox(
@@ -592,19 +367,5 @@ class _RegisterState extends State<Register> {
         ),
       ),
     );
-  }
-
-  Future<void> _selectDate() async {
-    DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-    if (picked != null) {
-      setState(() {
-        _dateController.text = picked.toString().split(" ")[0];
-      });
-    }
   }
 }
