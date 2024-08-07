@@ -18,7 +18,7 @@ class Signinmpinscreen extends StatefulWidget {
 
 class _SigninState extends State<Signinmpinscreen> {
   String enteredPin = '';
-  bool isPinVisible = false;
+  bool isPinVisible = true;
 
   void navigationBottomMenu() {
     Navigator.push(
@@ -111,6 +111,16 @@ class _SigninState extends State<Signinmpinscreen> {
                         );
                       }),
                     ),
+                    //  VISIBILITY TOGGLE BUTTON
+                    // IconButton(
+                    //     onPressed: () {
+                    //       setState(() {
+                    //         isPinVisible = !isPinVisible;
+                    //       });
+                    //     },
+                    //     icon: Icon(isPinVisible
+                    //         ? Icons.visibility_off
+                    //         : Icons.visibility)),
                   ],
                 ),
               ],
