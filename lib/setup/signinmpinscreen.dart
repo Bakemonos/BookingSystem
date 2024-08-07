@@ -1,5 +1,8 @@
-import 'package:app/Widgets/back_arrow.dart';
-import 'package:app/pages/home_menu.dart';
+// import the custom widgets
+import 'package:app/components/icon_Button.dart';
+import 'package:app/components/mpinObjects.dart';
+
+import 'package:app/home/home_menu.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/signin.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,42 +22,32 @@ class _SigninState extends State<Signinmpinscreen> {
   bool isPinVisible = false;
 
   void navigationBottomMenu() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomeMenu()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeMenu()));
   }
 
-  // MPIN VALIDATION
-  Widget numButton(int number) {
-    return TextButton(
-      style: ButtonStyle(
-          fixedSize: WidgetStateProperty.all(const Size(70, 70)),
-          alignment: Alignment.center),
-      onPressed: () {
-        setState(() {
-          if (enteredPin.length < 4) {
-            enteredPin += number.toString();
-            if (enteredPin.length == 4) {
-              navigationBottomMenu();
-            }
-          }
-        });
-      },
-      child: Text(
-        textAlign: TextAlign.center,
-        number.toString(),
-        style: TextStyle(
-            fontSize: 24.sp,
-            color: const Color(textColor),
-            fontFamily: "Poppins"),
-      ),
-    );
+  void handleNumButtonPress(int number) {
+    setState(() {
+      if (enteredPin.length < 4) {
+        enteredPin += number.toString();
+        if (enteredPin.length == 4) {
+          navigationBottomMenu();
+        }
+      }
+    });
+  }
+
+  void handleResetBackspace(String action) {
+    setState(() {
+      if (action == 'reset') {
+        enteredPin = '';
+      } else if (action == 'backspace') {
+        enteredPin = enteredPin.isNotEmpty ? enteredPin.substring(0, enteredPin.length - 1) : enteredPin;
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    // double screenWidth = MediaQuery.of(context).size.width;
-    // double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: const Color(backgroundColor),
       appBar: AppBar(
@@ -74,70 +67,50 @@ class _SigninState extends State<Signinmpinscreen> {
           children: [
             Column(
               children: [
-                SizedBox(
-                  height: 120.h,
-                ),
-
+                SizedBox(height: 120.h),
                 Column(
                   children: [
                     Text(
-                      'Enter you MPIN',
+                      'Enter your MPIN',
                       style: TextStyle(
-                          fontSize: 16.sp,
-                          fontFamily: "Poppins",
-                          color: const Color(textSubtitle)),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-
-                    // MPIN CODE HERE
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        4,
-                        (index) {
-                          return Container(
-                            margin: const EdgeInsets.all(6.0),
-                            width: isPinVisible ? 50 : 18,
-                            height: isPinVisible ? 50 : 18,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                              color: index < enteredPin.length
-                                  ? isPinVisible
-                                      ? const Color(primaryColor)
-                                      : const Color(primaryColor)
-                                  : CupertinoColors.activeBlue.withOpacity(0.1),
-                            ),
-                            child: isPinVisible && index < enteredPin.length
-                                ? Center(
-                                    child: Text(
-                                      enteredPin[index],
-                                      style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontFamily: "Poppins",
-                                          color: const Color(textLight)),
-                                    ),
-                                  )
-                                : null,
-                          );
-                        },
+                        fontSize: 16.sp,
+                        fontFamily: "Poppins",
+                        color: const Color(textSubtitle),
                       ),
                     ),
-
-                    // VISIBILITY TOGGLE BUTTON
-                    // IconButton(
-                    //     onPressed: () {
-                    //       setState(() {
-                    //         isPinVisible = !isPinVisible;
-                    //       });
-                    //     },
-                    //     icon: Icon(isPinVisible
-                    //         ? Icons.visibility_off
-                    //         : Icons.visibility)),
+                    SizedBox(height: 10.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(4, (index) {
+                        return Container(
+                          margin: const EdgeInsets.all(6.0),
+                          width: isPinVisible ? 50 : 18,
+                          height: isPinVisible ? 50 : 18,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
+                            color: index < enteredPin.length
+                              ? isPinVisible
+                                ? const Color(primaryColor)
+                                : const Color(primaryColor)
+                              : CupertinoColors.activeBlue.withOpacity(0.1),
+                          ),
+                          child: isPinVisible && index < enteredPin.length
+                            ? Center(
+                                child: Text(
+                                  enteredPin[index],
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                    color: const Color(textLight),
+                                  ),
+                                ),
+                              )
+                            : null,
+                        );
+                      }),
+                    ),
                   ],
                 ),
-                // SPACE BETWEEN
               ],
             ),
             Column(
@@ -164,102 +137,13 @@ class _SigninState extends State<Signinmpinscreen> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
+                                  colMpin(context, 1, 2, 3, enteredPin, handleNumButtonPress),
+                                  colMpin(context, 4, 5, 6, enteredPin, handleNumButtonPress),
+                                  colMpin(context, 7, 8, 9, enteredPin, handleNumButtonPress),
+                                  rolMpin(context, 'Reset', 0, 'backspace.svg', enteredPin, handleResetBackspace),
+                                  SizedBox(height: 50.h),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      numButton(1),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      numButton(2),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      numButton(3),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      numButton(4),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      numButton(5),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      numButton(6),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      numButton(7),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      numButton(8),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      numButton(9),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      TextButton(
-                                        style: ButtonStyle(
-                                          fixedSize: WidgetStateProperty.all(
-                                            const Size(70, 70),
-                                          ),
-                                        ),
-                                        onPressed: () =>
-                                            setState(() => enteredPin = ''),
-                                        child: Text(
-                                          'Reset',
-                                          style: TextStyle(
-                                            fontSize: 13.sp,
-                                            color: const Color(textColor),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      numButton(0),
-                                      SizedBox(
-                                        width: 20.w,
-                                      ),
-                                      TextButton(
-                                        style: ButtonStyle(
-                                          fixedSize: WidgetStateProperty.all(
-                                            const Size(70, 70),
-                                          ),
-                                        ),
-                                        onPressed: () => setState(() =>
-                                            enteredPin = enteredPin.isNotEmpty
-                                                ? enteredPin.substring(
-                                                    0, enteredPin.length - 1)
-                                                : enteredPin),
-                                        child: SvgPicture.asset(
-                                          height: 30.h,
-                                          width: 30.w,
-                                          "assets/Icons/backspace.svg",
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 50.h,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         'Help Center',
@@ -294,56 +178,57 @@ class _SigninState extends State<Signinmpinscreen> {
                       borderRadius: BorderRadius.circular(8.r),
                       color: const Color(primaryColor),
                     ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 16.h),
+                    padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 16.h),
                     child: Column(
                       children: [
                         SvgPicture.asset(
-                            width: 40.h,
-                            height: 40.h,
-                            "assets/Icons/MpinIcon.svg"),
+                          width: 40.h,
+                          height: 40.h,
+                          "assets/Icons/MpinIcon.svg",
+                        ),
                         Text(
                           'MPIN Login',
                           style: TextStyle(
-                              fontSize: 9.sp,
-                              fontFamily: "Poppins",
-                              color: const Color(textLight),
-                              fontWeight: FontWeight.w500),
+                            fontSize: 9.sp,
+                            fontFamily: "Poppins",
+                            color: const Color(textLight),
+                            fontWeight: FontWeight.w500,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 50.h,
-                ),
+                SizedBox(height: 50.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
                       'Help Center',
                       style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontSize: 12.sp,
-                          color: const Color(textSubtitle),
-                          fontWeight: FontWeight.w500),
+                        fontFamily: "Poppins",
+                        fontSize: 12.sp,
+                        color: const Color(textSubtitle),
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     Text(
-                      'Forgot MPIN?',
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontSize: 12.sp,
-                          color: const Color(textSubtitle),
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+                      'Forgot MPIN?',  
+                         style: TextStyle(
+                           fontFamily: "Poppins",
+                           fontSize: 12.sp,
+                           color: const Color(textSubtitle),
+                           fontWeight: FontWeight.w500,
+                         ),
+                       ),
+                     ],
+                   ),
+                 ],
+               ),
+             ],
+           ),
+         ),
+       );
+     }
+   }

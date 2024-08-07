@@ -1,12 +1,14 @@
-import 'package:app/pages/activities.dart';
-import 'package:app/pages/home.dart';
-import 'package:app/pages/records.dart';
+import 'package:app/home/screen/activities.dart';
+import 'package:app/home/screen/home.dart';
+import 'package:app/home/screen/records.dart';
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomeMenu extends StatefulWidget {
-  const HomeMenu({super.key});
+  const HomeMenu({
+    super.key,
+  });
 
   @override
   State<HomeMenu> createState() => _HomeMenuState();
@@ -20,6 +22,14 @@ class _HomeMenuState extends State<HomeMenu> {
     const Activities(),
     const Records(),
   ];
+
+  GButton buildGButton(IconData icon, String text) {
+    return GButton(
+      rippleColor: const Color(backgroundColor),
+      icon: icon,
+      text: text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,22 +53,10 @@ class _HomeMenuState extends State<HomeMenu> {
           color: const Color(textColor),
           tabBackgroundColor: const Color(primaryColor),
           gap: 8,
-          tabs: const [
-            GButton(
-              rippleColor: Color(backgroundColor),
-              icon: Icons.home,
-              text: 'Home',
-            ),
-            GButton(
-              rippleColor: Color(backgroundColor),
-              icon: Icons.file_copy_sharp,
-              text: 'Activities',
-            ),
-            GButton(
-              rippleColor: Color(backgroundColor),
-              icon: Icons.folder,
-              text: 'Records',
-            ),
+          tabs: [
+            buildGButton(Icons.home, 'Home'),
+            buildGButton(Icons.file_copy_sharp, 'Activities'),
+            buildGButton(Icons.folder, 'Records'),
           ],
           selectedIndex: selectedIndex,
           onTabChange: (index) {

@@ -1,5 +1,5 @@
-import 'package:app/Widgets/back_arrow.dart';
-import 'package:app/components/button.dart';
+import 'package:app/components/icon_Button.dart';
+import 'package:app/components/fill_Button.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/mpin.dart';
 import 'package:app/setup/signup.dart';
