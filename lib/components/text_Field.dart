@@ -7,17 +7,20 @@ class MyTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final IconData icon;
+  final bool read;
 
   const MyTextField(
       {super.key,
       required this.controller,
       required this.obscureText,
       required this.hintText,
-      required this.icon});
+      required this.icon,
+      required this.read});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      readOnly: read,
       obscureText: obscureText,
       controller: controller,
       decoration: InputDecoration(

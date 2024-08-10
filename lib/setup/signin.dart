@@ -1,6 +1,6 @@
-import 'package:app/components/icon_Button.dart';
 import 'package:app/components/fill_Button.dart';
 import 'package:app/components/text_Field.dart';
+import 'package:app/components/usable_Button.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:app/setup/signinmpinscreen.dart';
@@ -96,6 +96,7 @@ class _SigninState extends State<Signin> {
                           height: 5..h,
                         ),
                         MyTextField(
+                          read: false,
                           controller: emailTextController,
                           obscureText: false,
                           hintText: 'Enter your email',
@@ -105,10 +106,11 @@ class _SigninState extends State<Signin> {
                     ),
                     Column(
                       children: [
-                        const MyButton(
-                          destinationScreen: Signinmpinscreen(),
-                          textButton: 'Sign In',
-                        ),
+                        MyButton(
+                            textButton: 'Sign in',
+                            onPressed: () {
+                              forward(context, const Signinmpinscreen());
+                            }),
                         SizedBox(
                           height: 48.h,
                           child: Row(

@@ -16,3 +16,13 @@ Widget backArrowButton(BuildContext context, Widget targetPage) {
     icon: SvgPicture.asset('assets/Icons/backArrow.svg'),
   );
 }
+
+forward(BuildContext context, Widget destinationScreen) {
+  return Navigator.push(
+      context, MaterialPageRoute(builder: (context) => destinationScreen));
+}
+
+back(BuildContext context, Widget destinationScreen) {
+  return Navigator.push(
+      context, MaterialPageRoute(builder: (context) => destinationScreen));
+}

@@ -1,5 +1,5 @@
-import 'package:app/components/icon_Button.dart';
 import 'package:app/components/fill_Button.dart';
+import 'package:app/components/usable_Button.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/mpin.dart';
 import 'package:app/setup/signup.dart';
@@ -8,7 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Otp extends StatefulWidget {
-  const Otp({super.key});
+  final String email;
+  final String secret;
+  const Otp({super.key, required this.email, required this.secret});
 
   @override
   State<Otp> createState() => _OtpState();
@@ -107,12 +109,18 @@ class _OtpState extends State<Otp> {
                   ),
                 ],
               ),
-              const Column(
+              Column(
                 children: [
                   MyButton(
-                    destinationScreen: Mpin(),
-                    textButton: 'Verify',
-                  ),
+                      textButton: 'Verify',
+                      onPressed: () {
+                        forward(
+                            context,
+                            Mpin(
+                              email: widget.email,
+                              secret: widget.secret,
+                            ));
+                      })
                 ],
               ),
             ],

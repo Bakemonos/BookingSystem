@@ -1,12 +1,15 @@
-import 'package:app/components/icon_Button.dart';
 import 'package:app/components/fill_Button.dart';
+import 'package:app/components/text_Field.dart';
 import 'package:app/components/text_WithValidation_Field.dart';
+import 'package:app/components/usable_Button.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/getstarted.dart';
 import 'package:app/setup/otp.dart';
 import 'package:app/setup/signin.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+// Import the globals file
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -16,9 +19,55 @@ class Signup extends StatefulWidget {
 }
 
 final TextEditingController emailController = TextEditingController();
+final TextEditingController secret = TextEditingController();
+
 bool emailHasError = false;
 
 class _SignupState extends State<Signup> {
+  @override
+  void initState() {
+    super.initState();
+    // Set initial text here
+    secret.text = 'secretValidate';
+  }
+
+  @override
+  void dispose() {
+    secret.dispose(); // Dispose of the controller when it's no longer needed
+    super.dispose();
+  }
+
+  void _validateAndProceed() {
+    final email = emailController.text.trim();
+    final secretC = secret.text.trim();
+    if (email.isEmpty) {
+      setState(() {
+        emailHasError = true; // Set error if email is empty
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Email cannot be empty')),
+      );
+    } else if (!EmailValidator.validate(email)) {
+      setState(() {
+        emailHasError = true; // Set error if email format is invalid
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Invalid email format')),
+      );
+    } else {
+      setState(() {
+        emailHasError = false; // Clear error if email is valid
+      });
+
+      // Proceed to Mpin screen and pass the email
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => Otp(email: email, secret: secretC),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -99,14 +148,19 @@ class _SignupState extends State<Signup> {
                           icon: Icons.email_outlined,
                           hasError: emailHasError,
                         ),
+                        MyTextField(
+                            read: true,
+                            controller: secret,
+                            obscureText: false,
+                            hintText: 'secret',
+                            icon: Icons.hide_source),
                       ],
                     ),
                     Column(
                       children: [
-                        const MyButton(
-                          destinationScreen: Otp(),
-                          textButton: 'Sign Up',
-                        ),
+                        MyButton(
+                            textButton: 'Sign Up',
+                            onPressed: _validateAndProceed),
                         SizedBox(
                           height: 48.h,
                           child: Row(
