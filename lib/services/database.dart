@@ -6,9 +6,9 @@ import 'package:http/http.dart' as http;
 Future<void> insertData(
     BuildContext context, String email, String password, String secret) async {
   const String address =
-      '192.168.110.141'; // Replace with your XAMPP server IP address
+      '192.168.110.141'; 
   const String path =
-      'clinic/UserController/insert_data'; // Ensure this path is correct
+      'clinic/UserController/insert_data';
 
   try {
     final response = await http.post(

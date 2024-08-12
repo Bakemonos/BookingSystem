@@ -1,5 +1,4 @@
 import 'package:app/components/fill_Button.dart';
-import 'package:app/components/text_Field.dart';
 import 'package:app/components/text_WithValidation_Field.dart';
 import 'package:app/components/usable_Button.dart';
 import 'package:app/properties.dart';
@@ -39,7 +38,7 @@ class _SignupState extends State<Signup> {
 
   void _validateAndProceed() {
     final email = emailController.text.trim();
-    final secretC = secret.text.trim();
+
     if (email.isEmpty) {
       setState(() {
         emailHasError = true; // Set error if email is empty
@@ -62,7 +61,7 @@ class _SignupState extends State<Signup> {
       // Proceed to Mpin screen and pass the email
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => Otp(email: email, secret: secretC),
+          builder: (context) => Otp(email: email),
         ),
       );
     }
@@ -148,12 +147,6 @@ class _SignupState extends State<Signup> {
                           icon: Icons.email_outlined,
                           hasError: emailHasError,
                         ),
-                        MyTextField(
-                            read: true,
-                            controller: secret,
-                            obscureText: false,
-                            hintText: 'secret',
-                            icon: Icons.hide_source),
                       ],
                     ),
                     Column(

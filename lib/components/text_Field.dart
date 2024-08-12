@@ -1,5 +1,6 @@
 import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyTextField extends StatelessWidget {
@@ -9,17 +10,21 @@ class MyTextField extends StatelessWidget {
   final IconData icon;
   final bool read;
 
+
+
   const MyTextField(
+    
       {super.key,
       required this.controller,
       required this.obscureText,
       required this.hintText,
       required this.icon,
-      required this.read});
+      required this.read, });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      
       readOnly: read,
       obscureText: obscureText,
       controller: controller,

@@ -17,6 +17,7 @@ class Main extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
+        
         home: Splashscreen(),
         debugShowCheckedModeBanner: false,
       ),

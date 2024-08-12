@@ -9,8 +9,8 @@ import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Otp extends StatefulWidget {
   final String email;
-  final String secret;
-  const Otp({super.key, required this.email, required this.secret});
+
+  const Otp({super.key, required this.email});
 
   @override
   State<Otp> createState() => _OtpState();
@@ -118,7 +118,7 @@ class _OtpState extends State<Otp> {
                             context,
                             Mpin(
                               email: widget.email,
-                              secret: widget.secret,
+                              
                             ));
                       })
                 ],

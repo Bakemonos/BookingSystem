@@ -95,12 +95,15 @@ class _SigninState extends State<Signin> {
                         SizedBox(
                           height: 5..h,
                         ),
-                        MyTextField(
-                          read: false,
-                          controller: emailTextController,
-                          obscureText: false,
-                          hintText: 'Enter your email',
-                          icon: Icons.email_outlined,
+                        Visibility(
+                          visible: true,
+                          child: MyTextField(
+                            read: false,
+                            controller: emailTextController,
+                            obscureText: false,
+                            hintText: 'Enter your email',
+                            icon: Icons.email_outlined,
+                          ),
                         ),
                       ],
                     ),

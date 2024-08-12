@@ -1,4 +1,3 @@
-import 'package:app/components/fill_Button.dart';
 import 'package:app/components/usable_Button.dart';
 import 'package:app/properties.dart';
 import 'package:app/services/database.dart';
@@ -10,12 +9,10 @@ import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class Mpin extends StatefulWidget {
   final String email; // Add email field
-  final String secret;
 
   const Mpin({
     super.key,
     required this.email,
-    required this.secret,
   }); // Update constructor
 
   @override
@@ -48,12 +45,13 @@ class _MyWidgetState extends State<Mpin> {
   }
 
   void _validateAndProceed() {
+    const String secret = 'secretValidate';
     if (_mpin.length == 4 && _confirmMpin.length == 4) {
       if (_mpin == _confirmMpin) {
         String password = _mpin;
         void handleSignUp() async {
           String email = widget.email;
-          String secret = widget.secret; // Use the passed email
+          // Use the passed email
           password.trim();
           if (email.isEmpty) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -63,7 +61,7 @@ class _MyWidgetState extends State<Mpin> {
           }
 
           // Call insertData function
-          await insertData(context, email, password, secret);
+          await insertData(context, email, password, secret.trim());
 
           // Navigate to the Register page if needed
           Navigator.of(context).push(
@@ -181,13 +179,13 @@ class _MyWidgetState extends State<Mpin> {
                   ),
                 ],
               ),
-              if (!_isFirstStep)
-                Column(
-                  children: [
-                    MyButton(
-                        textButton: 'Next', onPressed: _validateAndProceed),
-                  ],
-                ),
+              // if (!_isFirstStep)
+              //   Column(
+              //     children: [
+              //       MyButton(
+              //           textButton: 'Confirm', onPressed: _validateAndProceed),
+              //     ],
+              //   ),
             ],
           ),
         ),
