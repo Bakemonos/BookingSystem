@@ -1,7 +1,7 @@
 // import the custom widgets
-import 'package:app/components/usable_Button.dart';
 import 'package:app/components/mpinObjects.dart';
-import 'package:app/home/home_menu.dart';
+import 'package:app/components/usable_Button.dart';
+import 'package:app/home/navigation_menu.dart';
 import 'package:app/properties.dart';
 import 'package:app/setup/signin.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,8 +21,8 @@ class _SigninState extends State<Signinmpinscreen> {
   bool isPinVisible = true;
 
   void navigationBottomMenu() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomeMenu()));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const NavigationMenu()));
   }
 
   void handleNumButtonPress(int number) {

@@ -6,13 +6,14 @@ class Activities extends StatefulWidget {
   const Activities({super.key});
 
   @override
-  State<Activities> createState() => _ActivitiesState();
+  State<Activities> createState() => _RecordsState();
 }
 
-class _ActivitiesState extends State<Activities> {
+class _RecordsState extends State<Activities> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: const Color(backgroundColor),
+    return Scaffold(
+      backgroundColor: const Color(backgroundColor),
       body: Center(
         child: Text(
           'ACTIVITIES',

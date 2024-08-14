@@ -6,8 +6,12 @@ class MyButton extends StatelessWidget {
   final String textButton;
   final Function() onPressed;
 
-  const MyButton(
-      {super.key, required this.textButton, required this.onPressed});
+
+  const MyButton({
+    super.key,
+    required this.textButton,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +29,7 @@ class MyButton extends StatelessWidget {
           fontFamily: "Poppins",
           fontWeight: FontWeight.normal,
         ),
+
       ),
     );
   }

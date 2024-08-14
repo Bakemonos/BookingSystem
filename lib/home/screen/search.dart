@@ -2,21 +2,21 @@ import 'package:app/properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Records extends StatefulWidget {
-  const Records({super.key});
+class Search extends StatefulWidget {
+  const Search({super.key});
 
   @override
-  State<Records> createState() => _RecordsState();
+  State<Search> createState() => _ActivitiesState();
 }
 
-class _RecordsState extends State<Records> {
+class _ActivitiesState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(backgroundColor),
       body: Center(
         child: Text(
-          'RECORDS',
+          'SEARCH',
           style: TextStyle(fontSize: 24.sp, color: const Color(textColor)),
         ),
       ),
